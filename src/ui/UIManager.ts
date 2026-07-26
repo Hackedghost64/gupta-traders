@@ -4,6 +4,7 @@ import { I18nManager } from '../core/I18n';
 import { Logger } from '../core/Logger';
 import { BUSINESS } from '../config';
 import { StatCounter } from './components/StatCounter';
+import { PressureGauge } from './components/PressureGauge';
 import { MotionPreferences } from '../core/MotionPreferences';
 import gsap from 'gsap';
 
@@ -32,6 +33,7 @@ export class UIManager {
         this.setupAnimations();
         this.setupStatCounters();
         this.setupPipesRowReveal();
+        this.setupPressureGauge();
         
         // Subscribe to State Changes
         this.stateManager.subscribe(this.onStateChange.bind(this));
@@ -114,6 +116,30 @@ export class UIManager {
             }
         }, { threshold: 0.2 });
         rowObserver.observe(pipesSection!);
+    }
+
+    private setupPressureGauge(): void {
+        const svgRoot = document.getElementById('pressure-gauge-container')?.querySelector<SVGSVGElement>('svg');
+        if (!svgRoot) {
+            Logger.warn('PressureGauge: SVG element not found');
+            return;
+        }
+
+        const gauge = new PressureGauge(svgRoot);
+        const rows = document.querySelectorAll<HTMLElement>('#pipes tbody tr');
+
+        rows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                const pressureCell = row.querySelector<HTMLElement>('td:nth-child(3)');
+                const text = pressureCell?.textContent?.trim() ?? null;
+                const value = PressureGauge.parse(text);
+                if (value !== null) {
+                    gauge.setPressure(value);
+                } else {
+                    gauge.reset();
+                }
+            });
+        });
     }
 
     private setupStatCounters(): void {
