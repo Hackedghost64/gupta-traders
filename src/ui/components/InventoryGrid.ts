@@ -6,6 +6,9 @@ import { Logger } from '../../core/Logger';
 import { BUSINESS } from '../../config';
 import { MotionPreferences } from '../../core/MotionPreferences';
 import gsap from 'gsap';
+import { Flip } from 'gsap/Flip';
+
+gsap.registerPlugin(Flip);
 
 export class InventoryGrid {
     private container: HTMLElement;
@@ -31,10 +34,10 @@ export class InventoryGrid {
     }
 
     public render(state: AppState): void {
-        // Product cards are generated from inventory.json, so adding a product
-        // does not require editing this component.
         const items = this.inventoryManager.getItems(state.activeCategory, state.sortOrder);
-        this.container.innerHTML = ''; // Clear container
+
+        const flipState = Flip.getState('#inventory-grid-container > *', { props: 'opacity,transform' });
+        this.container.innerHTML = '';
 
         if (items.length === 0) {
             this.container.innerHTML = `
@@ -53,6 +56,10 @@ export class InventoryGrid {
         });
 
         this.container.appendChild(fragment);
+
+        if (!MotionPreferences.reduced && flipState.length > 0) {
+            Flip.from(flipState, { duration: 0.5, ease: 'power2.out', stagger: 0.03, absolute: true });
+        }
 
         const cards = this.container.querySelectorAll<HTMLElement>('.product-card');
         cards.forEach(card => this.revealSpecs(card));
