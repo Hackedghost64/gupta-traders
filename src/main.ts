@@ -6,6 +6,7 @@ import { UIManager } from './ui/UIManager';
 import { InventoryManager } from './data/InventoryManager';
 import { InventoryGrid } from './ui/components/InventoryGrid';
 import { ParticleField } from './ui/components/ParticleField';
+import { RouteDraw } from './ui/components/RouteDraw';
 
 async function bootstrap(): Promise<void> {
     Logger.info('Application bootstrapping started.');
@@ -29,6 +30,9 @@ async function bootstrap(): Promise<void> {
 
         const heroSection = document.getElementById('hero');
         if (heroSection) new ParticleField(heroSection).mount();
+
+        const routePath = document.getElementById('route-path') as SVGPathElement | null;
+        if (routePath) new RouteDraw(routePath).mount();
     } catch (e) {
         Logger.error('Critical failure during application bootstrap', e);
     }
