@@ -5,6 +5,7 @@ import { StateManager } from './state/StateManager';
 import { UIManager } from './ui/UIManager';
 import { InventoryManager } from './data/InventoryManager';
 import { InventoryGrid } from './ui/components/InventoryGrid';
+import { ParticleField } from './ui/components/ParticleField';
 
 async function bootstrap(): Promise<void> {
     Logger.info('Application bootstrapping started.');
@@ -25,6 +26,9 @@ async function bootstrap(): Promise<void> {
         inventoryGrid.render(stateManager.getState());
 
         Logger.info('Application bootstrapped successfully.');
+
+        const heroSection = document.getElementById('hero');
+        if (heroSection) new ParticleField(heroSection).mount();
     } catch (e) {
         Logger.error('Critical failure during application bootstrap', e);
     }
