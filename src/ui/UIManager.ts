@@ -3,6 +3,7 @@ import { StateManager, type AppState } from '../state/StateManager';
 import { I18nManager } from '../core/I18n';
 import { Logger } from '../core/Logger';
 import { BUSINESS } from '../config';
+import { StatCounter } from './components/StatCounter';
 
 export class UIManager {
     private stateManager: StateManager;
@@ -26,6 +27,7 @@ export class UIManager {
         this.setupCatalogButton();
         this.setupPageActions();
         this.setupAnimations();
+        this.setupStatCounters();
         
         // Subscribe to State Changes
         this.stateManager.subscribe(this.onStateChange.bind(this));
@@ -91,6 +93,18 @@ export class UIManager {
                     ? 'Sorted by price, highest first'
                     : 'Sort inventory');
         });
+    }
+
+    private setupStatCounters(): void {
+        const itemsInStockStat = document.querySelector<HTMLElement>('[data-i18n="str_30"]');
+        const experienceStat = document.querySelector<HTMLElement>('[data-i18n="str_33"]');
+
+        if (itemsInStockStat) {
+            new StatCounter({ element: itemsInStockStat }).mount();
+        }
+        if (experienceStat) {
+            new StatCounter({ element: experienceStat }).mount();
+        }
     }
 
     private setupPageActions(): void {
