@@ -328,8 +328,128 @@
     "filter_tiller": "रोटरी टिलर",
     "btn_inquire": "व्हाट्सएप के माध्यम से पूछताछ करें"
   }
-};</script></head>
-<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+};</script>
+
+<!-- GSAP Animation Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+
+<!-- Preloader Styles -->
+<style>
+  /* === PRELOADER === */
+  #gt-preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #0a0a0f;
+    overflow: hidden;
+    pointer-events: all;
+  }
+
+  #gt-preloader__panel {
+    position: absolute;
+    inset: 0;
+    background: #0a0a0f;
+    transform-origin: top center;
+  }
+
+  #gt-preloader__wordmark {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  #gt-preloader__wordmark .gt-brand-name {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(1.5rem, 5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: #ffffff;
+  }
+
+  #gt-preloader__wordmark .gt-brand-tagline {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.5rem;
+  }
+
+  /* Loading bar */
+  #gt-preloader__bar-track {
+    position: absolute;
+    bottom: clamp(32px, 5vh, 64px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: clamp(120px, 30vw, 240px);
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  #gt-preloader__bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #6750a4; /* matches primary brand color */
+    transform-origin: left;
+  }
+
+  /* Accent dot above brand name */
+  #gt-preloader__dot {
+    position: relative;
+    z-index: 2;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #6750a4;
+    margin: 0 auto 1.5rem auto;
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  /* Prevent scroll during preloader */
+  body.gt-loading {
+    overflow: hidden;
+  }
+
+  /* === HERO STAGGER — elements start invisible === */
+  .gt-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  #top-navbar {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden gt-loading">
+
+<!-- ===== PRELOADER ===== -->
+<div id="gt-preloader" role="status" aria-label="Loading Gupta Traders">
+  <div id="gt-preloader__panel"></div>
+  <div id="gt-preloader__dot"></div>
+  <div id="gt-preloader__wordmark">
+    <span class="gt-brand-name">Gupta Traders</span>
+    <span class="gt-brand-tagline">Industrial &amp; Agricultural Equipment</span>
+  </div>
+  <div id="gt-preloader__bar-track">
+    <div id="gt-preloader__bar-fill"></div>
+  </div>
+</div>
+<!-- ===== /PRELOADER ===== -->
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md border-b border-outline-variant dark:border-outline-variant transition-all duration-200" id="top-navbar">
 <div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
