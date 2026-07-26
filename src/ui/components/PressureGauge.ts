@@ -20,8 +20,8 @@ export class PressureGauge {
   private readonly maxAngle = 90;
   private readonly maxPressure = 16;
 
-  constructor(private readonly svgRoot: SVGSVGElement) {
-    this.needle = svgRoot.querySelector('[data-gauge-needle]');
+  constructor(_svgRoot: SVGSVGElement) {
+    this.needle = _svgRoot.querySelector('[data-gauge-needle]');
   }
 
   setPressure(value: number): void {

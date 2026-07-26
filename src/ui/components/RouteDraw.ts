@@ -2,7 +2,11 @@ import gsap from 'gsap';
 import { MotionPreferences } from '../../core/MotionPreferences';
 
 export class RouteDraw {
-  constructor(private readonly path: SVGPathElement) {}
+  private readonly path: SVGPathElement;
+
+  constructor(path: SVGPathElement) {
+    this.path = path;
+  }
 
   mount(): void {
     const length = this.path.getTotalLength();

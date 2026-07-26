@@ -4,6 +4,7 @@ import { Logger } from '../../core/Logger';
 interface Particle { x: number; y: number; vx: number; vy: number; radius: number; }
 
 export class ParticleField {
+  private readonly container: HTMLElement;
   private readonly canvas: HTMLCanvasElement;
   private readonly ctx: CanvasRenderingContext2D | null;
   private particles: Particle[] = [];
@@ -11,7 +12,8 @@ export class ParticleField {
   private observer: IntersectionObserver | null = null;
   private readonly particleCount = 40;
 
-  constructor(private readonly container: HTMLElement) {
+  constructor(container: HTMLElement) {
+    this.container = container;
     this.canvas = document.createElement('canvas');
     this.canvas.className = 'absolute inset-0 pointer-events-none';
     this.ctx = this.canvas.getContext('2d');

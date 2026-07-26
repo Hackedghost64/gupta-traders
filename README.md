@@ -47,6 +47,13 @@ npm run preview
 
 - The hero intro is implemented inline in `index.html` using GSAP. Reveal-on-scroll is implemented in `src/ui/UIManager.ts` using `IntersectionObserver`.
 - If you change the hero markup, check the `splitHeadline` helper in `index.html` which splits headlines by `<br>` to stagger lines.
+- `src/core/MotionPreferences.ts` — single source of truth for `prefers-reduced-motion`; every animation class checks it before running tweens.
+- `src/ui/components/StatCounter.ts` — animates numeric stat cards (10k+, 25 Yrs) into view via ScrollTrigger on scroll.
+- `src/ui/components/ParticleField.ts` — lightweight canvas particle field behind the hero photo; rAF starts/stops with IntersectionObserver to save CPU off-screen.
+- `src/ui/components/PressureGauge.ts` — SVG needle gauge in the pipes section; rotates on table row hover, parsing kgf/cm² and PN values from inline text.
+- `src/ui/components/RouteDraw.ts` — decorative stroke-dashoffset route line drawn over the Google Maps embed when the location section enters viewport.
+- `src/ui/components/InventoryGrid.ts` — GSAP Flip animates card positions on filter/sort changes; `[data-spec-line]` stagger reveals spec lines on card scroll-intersection.
+- `src/ui/UIManager.ts` — language toggle crossfades all `[data-i18n]` elements; `#pipes tbody tr` rows reveal staggered via CSS transition on IntersectionObserver.
 
 ## Development notes
 

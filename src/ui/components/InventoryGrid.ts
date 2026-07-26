@@ -57,7 +57,7 @@ export class InventoryGrid {
 
         this.container.appendChild(fragment);
 
-        if (!MotionPreferences.reduced && flipState.length > 0) {
+        if (!MotionPreferences.reduced) {
             Flip.from(flipState, { duration: 0.5, ease: 'power2.out', stagger: 0.03, absolute: true });
         }
 
