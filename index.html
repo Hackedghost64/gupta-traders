@@ -824,6 +824,11 @@
 (function () {
   'use strict';
 
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    skipIntro();
+    return;
+  }
+
   var SKIP_TIMEOUT = 4500;
   var introTimer = null;
   var introSkipped = false;
