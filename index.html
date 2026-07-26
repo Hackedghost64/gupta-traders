@@ -802,5 +802,169 @@
         <button class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="milling" data-i18n="filter_milling">Milling Machines</button>
         <button class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="tiller" data-i18n="filter_tiller">Rotary Tillers</button>
     </div>
-</div>
-</div></body></html>
+</div></div>
+
+<!-- ===== GSAP OPENING SEQUENCE ===== -->
+<script>
+(function () {
+  'use strict';
+
+  // ── Helpers ─────────────────────────────────────────────────────────────────
+  var SKIP_KEY = 'gt_intro_played';
+
+  var preloader   = document.getElementById('gt-preloader');
+  var panel       = document.getElementById('gt-preloader__panel');
+  var dot         = document.getElementById('gt-preloader__dot');
+  var wordmark    = document.getElementById('gt-preloader__wordmark');
+  var barFill     = document.getElementById('gt-preloader__bar-fill');
+  var navbar      = document.getElementById('top-navbar');
+  var heroH1      = document.querySelector('.gt-reveal--h1');
+  var heroSub     = document.querySelector('.gt-reveal--subtitle');
+  var heroCtas    = document.querySelector('.gt-reveal--ctas');
+  var heroStats   = document.querySelector('.gt-reveal--stats');
+
+  // ── Skip on repeat visits within the same session ───────────────────────────
+  function skipIntro() {
+    if (!preloader) return;
+    preloader.style.display = 'none';
+    document.body.classList.remove('gt-loading');
+    // Reveal everything immediately
+    [heroH1, heroSub, heroCtas, heroStats].forEach(function (el) {
+      if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
+    });
+    if (navbar) { navbar.style.opacity = '1'; navbar.style.transform = 'none'; }
+  }
+
+  function runIntro() {
+    // Wait for GSAP to be available (it loads with defer)
+    if (typeof gsap === 'undefined') {
+      requestAnimationFrame(runIntro);
+      return;
+    }
+
+    var tl = gsap.timeline({
+      defaults: { ease: 'power3.out' },
+      onComplete: function () {
+        // Remove preloader from DOM completely once done
+        if (preloader && preloader.parentNode) {
+          preloader.parentNode.removeChild(preloader);
+        }
+        document.body.classList.remove('gt-loading');
+        // Mark as played for this session
+        try { sessionStorage.setItem(SKIP_KEY, '1'); } catch (e) {}
+      }
+    });
+
+    // ── Phase 1: Preloader screen ─────────────────────────────────────────────
+    // Dot pops in
+    tl.to(dot, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.4,
+      ease: 'back.out(2)',
+      delay: 0.15
+    });
+
+    // Wordmark rises + fades in
+    tl.to(wordmark, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power3.out'
+    }, '-=0.15');
+
+    // Loading bar sweeps left → right
+    tl.to(barFill, {
+      width: '100%',
+      duration: 1.1,
+      ease: 'power2.inOut'
+    }, '-=0.3');
+
+    // Brief hold so user registers the brand
+    tl.to({}, { duration: 0.25 });
+
+    // Fade out wordmark + dot
+    tl.to([dot, wordmark], {
+      opacity: 0,
+      y: -12,
+      duration: 0.4,
+      ease: 'power2.in',
+      stagger: 0.05
+    });
+
+    // ── Phase 2: Curtain wipes UP (scaleY 1 → 0, origin = top) ──────────────
+    tl.to(panel, {
+      scaleY: 0,
+      duration: 0.75,
+      ease: 'power4.inOut',
+      transformOrigin: 'top center'
+    }, '-=0.1');
+
+    // Hide the outer preloader shell (panel gone, shell still blocks events)
+    tl.set(preloader, { display: 'none' });
+
+    // ── Phase 3: Hero elements stagger in ────────────────────────────────────
+    // Navbar slides down
+    tl.to(navbar, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.4');
+
+    // Headline (feels like Crest's split-line animation)
+    tl.to(heroH1, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power3.out'
+    }, '-=0.3');
+
+    // Subtitle
+    tl.to(heroSub, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.45');
+
+    // CTAs
+    tl.to(heroCtas, {
+      opacity: 1,
+      y: 0,
+      duration: 0.55,
+      ease: 'power3.out'
+    }, '-=0.4');
+
+    // Stats bento (slight extra delay for a cascade feel)
+    tl.to(heroStats, {
+      opacity: 1,
+      y: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.35');
+  }
+
+  // ── Entry point ──────────────────────────────────────────────────────────────
+  function init() {
+    var alreadyPlayed = false;
+    try { alreadyPlayed = sessionStorage.getItem(SKIP_KEY) === '1'; } catch (e) {}
+
+    if (alreadyPlayed) {
+      skipIntro();
+    } else {
+      runIntro();
+    }
+  }
+
+  // Run as soon as DOM is ready (GSAP itself deferred — runIntro polls for it)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- ===== /GSAP OPENING SEQUENCE ===== -->
+
+</body></html>
