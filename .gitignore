@@ -34,3 +34,16 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Vite
+.vite/
+
+# Cache
+.cache/
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage
+coverage/
+

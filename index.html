@@ -4,10 +4,8 @@
 <meta name="description" content="Gupta Traders — Trusted B2B industrial and agricultural equipment supplier in Baikunthpur, Chhattisgarh. Rice mills, flour mills, harvesters, pulverizers, PVC/GI pipes. 25+ years of industry experience.">
 <title>Gupta Traders — Industrial &amp; Agricultural Equipment | Baikunthpur, Chhattisgarh</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/assets/shop_photo.jpg" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
 <script>document.fonts.ready.then(function(){document.documentElement.classList.add('fonts-loaded')});</script>
@@ -35,6 +33,7 @@
     "str_18": "chat",
     "str_19": "WhatsApp Sales",
     "str_20": "verified",
+    "str_21": "Trusted Industrial Supplier",
     "str_22": "Heavy-Duty Agricultural &",
     "str_23": "Industrial Solutions",
     "str_24": "Milling, Harvesters, and High-Grade PVC/GI Pipes engineered for extreme environments. We supply rural contractors and industrial farmers with equipment built to last.",
@@ -43,7 +42,7 @@
     "str_27": "Get Directions",
     "str_28": "location_on",
     "str_29": "inventory_2",
-    "str_30": "5k+",
+    "str_30": "10k+",
     "str_31": "Items in Stock",
     "str_32": "workspace_premium",
     "str_33": "Since 2000",
@@ -278,14 +277,14 @@
     "str_104": "सीमित स्टॉक",
     "str_105": "हमारे शोरूम पर पधारें",
     "str_106": "business",
-    "str_107": "गुप्ता ट्रेडर्स इंडस्ट्रियल शोरूम",
-    "str_108": "प्लॉट नं. 45, फेज II, इंडस्ट्रियल एरिया",
-    "str_109": "नई दिल्ली, 110020, भारत",
+"str_107": "गुप्ता ट्रेडर्स",
+"str_108": "मेन रोड बैकुंठपुर,",
+"str_109": "छत्तीसगढ़ 497335 (कुमार मेडिकल के पास)",
     "str_110": "call",
     "str_111": "डायरेक्ट सेल्स लाइन",
     "str_112": "schedule",
     "str_113": "संचालन का समय",
-    "str_114": "सोमवार - शनिवार: 09:00 AM - 07:00 PM",
+    "str_114": "सोमवार - शुक्रवार: 08:30 AM - 09:00 PM",
     "str_115": "रविवार: बंद",
     "str_116": "chat",
     "str_117": "व्हाट्सएप पर संदेश भेजें",
@@ -344,7 +343,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #0a0a0f;
+    background: transparent;
     overflow: hidden;
     pointer-events: all;
   }
@@ -352,7 +351,7 @@
   #gt-preloader__panel {
     position: absolute;
     inset: 0;
-    background: #0a0a0f;
+    background: #0d150e;
     transform-origin: top center;
   }
 
@@ -399,10 +398,26 @@
   }
 
   #gt-preloader__bar-fill {
+    position: relative;
     height: 100%;
     width: 0%;
-    background: #6750a4; /* matches primary brand color */
+    background: #4ff07f;
     transform-origin: left;
+    overflow: hidden;
+  }
+
+  /* Gradient shimmer on loading bar */
+  #gt-preloader__bar-fill::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+    animation: gt-shimmer 1.4s ease-in-out infinite;
+  }
+
+  @keyframes gt-shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
   }
 
   /* Accent dot above brand name */
@@ -412,7 +427,7 @@
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    background: #6750a4;
+    background: #4ff07f;
     margin: 0 auto 1.5rem auto;
     opacity: 0;
     transform: scale(0);
@@ -676,7 +691,7 @@
 </div>
 <div>
 <h3 class="font-label-md text-on-surface mb-1" data-i18n="str_107">Gupta Traders Industrial Showroom</h3>
-<p class="font-body-md text-on-surface-variant"><span data-i18n="str_108">Plot No. 45, Phase II, Industrial Area</span><br><span data-i18n="str_109">New Delhi, 110020, India</span></p>
+<p class="font-body-md text-on-surface-variant"><span data-i18n="str_108">Main Road Baikunthpur,</span><br><span data-i18n="str_109">Chhattisgarh 497335 (Beside Kumar Medical)</span></p>
 </div>
 </div>
 <div class="flex items-start gap-4">
@@ -767,7 +782,7 @@
 <!-- Brand Column -->
 <div class="flex flex-col gap-4">
 <span class="font-headline-md text-headline-md font-bold text-on-surface" data-i18n="str_120">Gupta Traders</span>
-<p class="font-body-md text-sm text-on-surface-variant max-w-xs" data-i18n="str_121">Reliable B2C industrial and agricultural equipment supplier. Built for extreme performance and durability.</p>
+<p class="font-body-md text-sm text-on-surface-variant max-w-xs" data-i18n="str_121">Reliable B2B industrial and agricultural equipment supplier. Built for extreme performance and durability.</p>
 </div>
 <!-- Links Column -->
 <div class="flex flex-col gap-3">
@@ -809,8 +824,9 @@
 (function () {
   'use strict';
 
-  // ── Helpers ─────────────────────────────────────────────────────────────────
-  var SKIP_KEY = 'gt_intro_played';
+  var SKIP_TIMEOUT = 4500;
+  var introTimer = null;
+  var introSkipped = false;
 
   var preloader   = document.getElementById('gt-preloader');
   var panel       = document.getElementById('gt-preloader__panel');
@@ -823,145 +839,118 @@
   var heroCtas    = document.querySelector('.gt-reveal--ctas');
   var heroStats   = document.querySelector('.gt-reveal--stats');
 
-  // ── Skip on repeat visits within the same session ───────────────────────────
+  // ── Split headline by <br> into staggered div lines ──
+  function splitHeadline(el) {
+    if (!el) return [];
+    var html = el.innerHTML;
+    var parts = html.split(/<br\s*\/?>/i);
+    if (parts.length < 2) return [];
+    el.innerHTML = '';
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    var lines = [];
+    parts.forEach(function (part, i) {
+      var line = document.createElement('div');
+      line.style.opacity = '0';
+      line.style.transform = 'translateY(40px)';
+      line.innerHTML = part.trim();
+      el.appendChild(line);
+      lines.push(line);
+    });
+    return lines;
+  }
+
+  var headlineLines = splitHeadline(heroH1);
+
   function skipIntro() {
+    if (introSkipped) return;
+    introSkipped = true;
+    if (introTimer !== null) {
+      clearTimeout(introTimer);
+      introTimer = null;
+    }
     if (!preloader) return;
     preloader.style.display = 'none';
     document.body.classList.remove('gt-loading');
-    // Reveal everything immediately
-    [heroH1, heroSub, heroCtas, heroStats].forEach(function (el) {
+    [heroH1, navbar, heroSub, heroCtas, heroStats].forEach(function (el) {
       if (el) { el.style.opacity = '1'; el.style.transform = 'none'; }
     });
-    if (navbar) { navbar.style.opacity = '1'; navbar.style.transform = 'none'; }
+    headlineLines.forEach(function (line) {
+      if (line) { line.style.opacity = '1'; line.style.transform = 'none'; }
+    });
   }
 
   function runIntro() {
-    // Wait for GSAP to be available (it loads with defer)
+    if (introSkipped) return;
     if (typeof gsap === 'undefined') {
       requestAnimationFrame(runIntro);
       return;
     }
 
+    if (introTimer !== null) {
+      clearTimeout(introTimer);
+      introTimer = null;
+    }
+
     var tl = gsap.timeline({
       defaults: { ease: 'power3.out' },
       onComplete: function () {
-        // Remove preloader from DOM completely once done
         if (preloader && preloader.parentNode) {
           preloader.parentNode.removeChild(preloader);
         }
         document.body.classList.remove('gt-loading');
-        // Mark as played for this session
-        try { sessionStorage.setItem(SKIP_KEY, '1'); } catch (e) {}
       }
     });
 
-    // ── Phase 1: Preloader screen ─────────────────────────────────────────────
-    // Dot pops in
-    tl.to(dot, {
-      opacity: 1,
-      scale: 1,
-      duration: 0.4,
-      ease: 'back.out(2)',
-      delay: 0.15
-    });
+    // ── Phase 1: Preloader ──
+    tl.to(dot, { opacity: 1, scale: 1, duration: 0.4, ease: 'back.out(2)', delay: 0.15 });
+    tl.to(wordmark, { opacity: 1, y: 0, duration: 0.7 }, '-=0.15');
+    tl.to(barFill, { width: '100%', duration: 1.2, ease: 'power2.inOut' }, '-=0.3');
+    tl.to({}, { duration: 0.3 });
+    tl.to([dot, wordmark], { opacity: 0, y: -12, duration: 0.4, ease: 'power2.in', stagger: 0.05 });
 
-    // Wordmark rises + fades in
-    tl.to(wordmark, {
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      ease: 'power3.out'
-    }, '-=0.15');
-
-    // Loading bar sweeps left → right
-    tl.to(barFill, {
-      width: '100%',
-      duration: 1.1,
-      ease: 'power2.inOut'
-    }, '-=0.3');
-
-    // Brief hold so user registers the brand
-    tl.to({}, { duration: 0.25 });
-
-    // Fade out wordmark + dot
-    tl.to([dot, wordmark], {
-      opacity: 0,
-      y: -12,
-      duration: 0.4,
-      ease: 'power2.in',
-      stagger: 0.05
-    });
-
-    // ── Phase 2: Curtain wipes UP (scaleY 1 → 0, origin = top) ──────────────
-    tl.to(panel, {
-      scaleY: 0,
-      duration: 0.75,
-      ease: 'power4.inOut',
-      transformOrigin: 'top center'
-    }, '-=0.1');
-
-    // Hide the outer preloader shell (panel gone, shell still blocks events)
+    // ── Phase 2: Curtain wipe ──
+    tl.to(panel, { scaleY: 0, duration: 0.8, ease: 'power4.inOut', transformOrigin: 'top center' }, '-=0.1');
     tl.set(preloader, { display: 'none' });
 
-    // ── Phase 3: Hero elements stagger in ────────────────────────────────────
-    // Navbar slides down
-    tl.to(navbar, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.4');
+    // ── Phase 3: Hero stagger ──
+    tl.to(navbar, { opacity: 1, y: 0, duration: 0.6 }, '-=0.4');
 
-    // Headline (feels like Crest's split-line animation)
-    tl.to(heroH1, {
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      ease: 'power3.out'
-    }, '-=0.3');
-
-    // Subtitle
-    tl.to(heroSub, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.45');
-
-    // CTAs
-    tl.to(heroCtas, {
-      opacity: 1,
-      y: 0,
-      duration: 0.55,
-      ease: 'power3.out'
-    }, '-=0.4');
-
-    // Stats bento (slight extra delay for a cascade feel)
-    tl.to(heroStats, {
-      opacity: 1,
-      y: 0,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.35');
-  }
-
-  // ── Entry point ──────────────────────────────────────────────────────────────
-  function init() {
-    var alreadyPlayed = false;
-    try { alreadyPlayed = sessionStorage.getItem(SKIP_KEY) === '1'; } catch (e) {}
-
-    if (alreadyPlayed) {
-      skipIntro();
-    } else {
-      runIntro();
+    // Each headline line rises and fades in with stagger
+    if (headlineLines.length > 0) {
+      tl.to(headlineLines, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.15
+      }, '-=0.2');
+    } else if (heroH1) {
+      tl.to(heroH1, {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, '-=0.2');
     }
+
+    tl.to(heroSub, { opacity: 1, y: 0, duration: 0.6 }, '-=0.35');
+    tl.to(heroCtas, { opacity: 1, y: 0, duration: 0.55 }, '-=0.3');
+    tl.to(heroStats, { opacity: 1, y: 0, duration: 0.6 }, '-=0.25');
   }
 
-  // Run as soon as DOM is ready (GSAP itself deferred — runIntro polls for it)
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
+  function init() {
+    introTimer = window.setTimeout(function () {
+      skipIntro();
+    }, SKIP_TIMEOUT);
+
+    runIntro();
+  }
+
+  if (document.readyState !== 'loading') {
     init();
+  } else {
+    document.addEventListener('DOMContentLoaded', init);
   }
 })();
 </script>
