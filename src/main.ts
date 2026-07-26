@@ -10,20 +10,18 @@ async function bootstrap(): Promise<void> {
     Logger.info('Application bootstrapping started.');
 
     try {
+        // Create the small services used by the page. Keeping startup here
+        // makes it easy to see how the application is assembled.
         const i18nManager = new I18nManager();
         const stateManager = StateManager.getInstance();
         const uiManager = new UIManager(stateManager, i18nManager);
-        
-        // Initialize UI Orchestration
+
         uiManager.init();
 
-        // Initialize Dynamic Data
         const inventoryManager = new InventoryManager();
         await inventoryManager.load();
-        
+
         const inventoryGrid = new InventoryGrid(stateManager, inventoryManager, i18nManager);
-        
-        // Trigger initial render of the grid
         inventoryGrid.render(stateManager.getState());
 
         Logger.info('Application bootstrapped successfully.');

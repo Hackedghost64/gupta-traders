@@ -50,6 +50,7 @@ export class InventoryManager {
             filteredItems = filteredItems.filter(item => item.categoryId === categoryId);
         }
 
+        // Sort a copy so filtering and sorting never mutate the original data.
         if (sortOrder) {
             filteredItems = [...filteredItems];
             switch (sortOrder) {

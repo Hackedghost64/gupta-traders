@@ -1,46 +1,97 @@
-# Gupta Traders Digital Showroom
+# Gupta Traders Website
 
-This is a B2B Lead Generation Hub optimized for rapid loading and LLM search visibility. The core objective is converting digital traffic into direct WhatsApp or phone inquiries, focusing on the heavy machinery and agricultural sectors.
+This is a small Vite + TypeScript website for Gupta Traders. It is a mostly
+static business website with a product catalog, Hindi/English language switch,
+filters, sorting, WhatsApp contact buttons, and an embedded Google Map.
 
-## Strict Architecture (TypeScript OOP)
+## Start the website
 
-This codebase enforces a Strict Object-Oriented paradigm. Monolithic scripts and ad-hoc DOM manipulations have been actively rejected in favor of state-driven orchestrators.
+Install dependencies once:
 
-### Core Philosophy
-1. **Zero Hardcoded UI Text**: Core application text binds dynamically to an `I18nManager` reading from static memory.
-2. **Static Object Injection for SEO**: The dictionaries (`en` and `hi`) are statically injected into `window.__LOCALES__` via the `index.html` payload at build/render time. This bypasses client-side asynchronous network fetching specifically for text data, ensuring instantaneous read access for web crawlers while preserving the client-side OOP switching mechanism.
-3. **Defensive Programming**: A robust `Assert.ts` utility wraps critical DOM selectors and business logic, providing fail-fast guarantees instead of silent rendering errors.
-4. **Trace Debugging**: A `Logger.ts` abstraction encapsulates output streams, explicitly preventing raw `console.log()` usage and allowing environment-aware muting in production.
-
-## State Data Flow
-
-1. **User Interaction**: User triggers a toggle via the UI (e.g., clicks the EN/HI language button).
-2. **State Mutation**: The event listener inside `UIManager` invokes the Singleton `StateManager` (e.g., `stateManager.setLanguage('hi')`).
-3. **Subscription Notification**: `StateManager` broadcasts the updated state tree (the active language and mobile menu status) to all subscribers.
-4. **Active Rendering Orchestration**: `UIManager`, listening for these mutations, re-scans the DOM for elements containing `data-i18n` attributes.
-5. **Localization Extraction**: `UIManager` queries `I18nManager.translate(key, language)`. `I18nManager` executes assertions against the `window.__LOCALES__` payload, enforcing a fallback to English if necessary.
-6. **DOM Update**: The target text nodes are securely re-rendered with the new language data without full page layout recalculation or jank.
-
-## Tech Stack
-*   **HTML5 Semantic Layer** (for Web Crawler accessibility)
-*   **Vite** (Build tooling)
-*   **TypeScript** (`strict: true`, explicit definitions required, `verbatimModuleSyntax`)
-*   **Tailwind CSS v3** (Utility-first styling with static configuration)
-
-## Development Workflow
-
-### Requirements
-*   Node.js
-
-### Setup
-```bash
+```text
 npm install
+```
+
+Run the local development server:
+
+```text
 npm run dev
 ```
 
-### Git Strategy
-We enforce strict conventional commits corresponding to architectural checkpoints:
-- `feat: scaffolding`
-- `feat: core-utilities`
-- `feat: i18n-migration`
-- `feat: ui-orchestration`
+Create a production build:
+
+```text
+npm run build
+```
+
+## Where to edit things
+
+| Task | File |
+| --- | --- |
+| Page sections, headings, links, and tables | `index.html` |
+| Products, prices, images, and WhatsApp messages | `public/data/inventory.json` |
+| Product card layout | `src/ui/components/InventoryGrid.ts` |
+| Button behavior and menus | `src/ui/UIManager.ts` |
+| Current language, filter, and sort state | `src/state/StateManager.ts` |
+| English and Hindi translation lookup | `src/core/I18n.ts` and the locale data in `index.html` |
+| Business phone, WhatsApp, map, and support settings | `src/config.ts` |
+| Colors, fonts, animations, and Tailwind imports | `src/style.css` and `tailwind.config.js` |
+| Application startup | `src/main.ts` |
+
+## How the code fits together
+
+```text
+index.html
+	├── Displays the page structure and locale text
+	└── Loads src/main.ts
+
+src/main.ts
+	├── Starts UIManager
+	├── Loads inventory.json through InventoryManager
+	└── Asks InventoryGrid to render product cards
+
+UIManager
+	├── Connects buttons to click handlers
+	├── Updates translations
+	└── Shows and hides the mobile menu and filter modal
+
+StateManager
+	└── Stores language, category, sort order, and menu state
+
+InventoryGrid
+	└── Converts each inventory item into a product card
+```
+
+## Common edits
+
+### Add or change a product
+
+Edit `public/data/inventory.json`. Keep the existing property names. Product
+images should be placed in `public/assets/` and referenced like:
+
+```json
+"image": "/assets/my-machine.jpg"
+```
+
+### Change the business contact details
+
+Edit `src/config.ts`. This keeps the WhatsApp number and map link in one place
+for TypeScript-generated links and buttons. Some static HTML links still have
+their own `href`; update those too when changing business details.
+
+### Change the design
+
+Most visual styling is written directly as Tailwind classes in `index.html`.
+For example, `bg-primary` controls the main green color and `rounded-full`
+creates pill-shaped buttons. Global styles and animations are in
+`src/style.css`.
+
+## Important notes
+
+- Edit the source files, not the generated `dist/` folder.
+- Product cards are generated from `inventory.json`; they are intentionally not
+	copied into `index.html`.
+- Translation text is kept in `index.html` so the initial page has readable
+	content before TypeScript starts.
+- The old root-level migration scripts are historical utilities. They are not
+	part of the normal development or build process.

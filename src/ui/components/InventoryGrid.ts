@@ -3,6 +3,7 @@ import { StateManager, type AppState } from '../../state/StateManager';
 import { InventoryManager, type InventoryItem } from '../../data/InventoryManager';
 import { I18nManager } from '../../core/I18n';
 import { Logger } from '../../core/Logger';
+import { BUSINESS } from '../../config';
 
 export class InventoryGrid {
     private container: HTMLElement;
@@ -28,6 +29,8 @@ export class InventoryGrid {
     }
 
     public render(state: AppState): void {
+        // Product cards are generated from inventory.json, so adding a product
+        // does not require editing this component.
         const items = this.inventoryManager.getItems(state.activeCategory, state.sortOrder);
         this.container.innerHTML = ''; // Clear container
 
@@ -52,7 +55,7 @@ export class InventoryGrid {
 
     private createCard(item: InventoryItem, lang: string): HTMLElement {
         const article = document.createElement('article');
-        article.className = 'bg-surface-container-high rounded-2xl border border-outline-variant overflow-hidden group flex flex-col @xl:flex-row h-full fade-in @container';
+        article.className = 'product-card bg-surface-container-high rounded-2xl border border-outline-variant overflow-hidden group flex flex-col @xl:flex-row h-full fade-in @container';
 
         const name = this.i18nManager.translate(item.nameKey, lang);
         const imageAlt = this.i18nManager.translate(item.imageAlt, lang);
@@ -87,7 +90,7 @@ export class InventoryGrid {
                     ${specsHtml}
                 </ul>
                 <div class="mt-auto @xl:mt-6 pt-4 border-t border-outline-variant">
-                    <a href="https://wa.me/1234567890?text=${encodedMessage}" target="_blank" class="w-full flex items-center justify-center gap-2 bg-surface text-primary border border-primary px-4 py-3 rounded-full font-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors">
+                    <a href="${BUSINESS.whatsappUrl}?text=${encodedMessage}" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-2 bg-surface text-primary border border-primary px-4 py-3 rounded-full font-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors">
                         <span class="material-symbols-outlined text-xl" data-icon="chat" data-weight="fill">chat</span>
                         ${btnText}
                     </a>
