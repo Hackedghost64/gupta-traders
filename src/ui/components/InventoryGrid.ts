@@ -4,6 +4,8 @@ import { InventoryManager, type InventoryItem } from '../../data/InventoryManage
 import { I18nManager } from '../../core/I18n';
 import { Logger } from '../../core/Logger';
 import { BUSINESS } from '../../config';
+import { MotionPreferences } from '../../core/MotionPreferences';
+import gsap from 'gsap';
 
 export class InventoryGrid {
     private container: HTMLElement;
@@ -51,6 +53,31 @@ export class InventoryGrid {
         });
 
         this.container.appendChild(fragment);
+
+        const cards = this.container.querySelectorAll<HTMLElement>('.product-card');
+        cards.forEach(card => this.revealSpecs(card));
+    }
+
+    private revealSpecs(cardElement: HTMLElement): void {
+        const specLines = cardElement.querySelectorAll<HTMLElement>('[data-spec-line]');
+        if (specLines.length === 0) return;
+
+        if (MotionPreferences.reduced) {
+            specLines.forEach((line) => { line.style.opacity = '1'; });
+            return;
+        }
+
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                gsap.fromTo(
+                    specLines,
+                    { opacity: 0, x: -8 },
+                    { opacity: 1, x: 0, duration: 0.4, stagger: 0.12, ease: 'power2.out' }
+                );
+                observer.disconnect();
+            }
+        }, { threshold: 0.3 });
+        observer.observe(cardElement);
     }
 
     private createCard(item: InventoryItem, lang: string): HTMLElement {
@@ -70,7 +97,7 @@ export class InventoryGrid {
         item.specs.forEach(spec => {
             const specText = this.i18nManager.translate(spec.key, lang);
             specsHtml += `
-                <li class="flex items-start gap-2">
+                <li class="flex items-start gap-2" data-spec-line>
                     <span class="material-symbols-outlined text-primary text-[18px] mt-0.5" data-icon="check_circle" data-weight="fill">check_circle</span>
                     <span>${specText}</span>
                 </li>
