@@ -4,11 +4,14 @@ import { I18nManager } from '../core/I18n';
 import { Logger } from '../core/Logger';
 import { BUSINESS } from '../config';
 import { StatCounter } from './components/StatCounter';
+import { MotionPreferences } from '../core/MotionPreferences';
+import gsap from 'gsap';
 
 export class UIManager {
     private stateManager: StateManager;
     private i18nManager: I18nManager;
     private lastFocusedElement: HTMLElement | null = null;
+    private currentLanguage: string = 'en';
 
     constructor(stateManager: StateManager, i18nManager: I18nManager) {
         this.stateManager = stateManager;
@@ -239,8 +242,20 @@ export class UIManager {
         this.lastFocusedElement = null;
     }
 
-    private onStateChange(state: AppState): void {
-        this.renderLanguage(state);
+    private async onStateChange(state: AppState): Promise<void> {
+        if (state.language !== this.currentLanguage) {
+            const elements = document.querySelectorAll<HTMLElement>('[data-i18n]');
+            if (!MotionPreferences.reduced && elements.length > 0) {
+                await gsap.to(elements, { opacity: 0, duration: 0.15, overwrite: 'auto' });
+            }
+            this.renderLanguage(state);
+            this.currentLanguage = state.language;
+            if (!MotionPreferences.reduced && elements.length > 0) {
+                gsap.to(elements, { opacity: 1, duration: 0.2, overwrite: 'auto' });
+            }
+        } else {
+            this.renderLanguage(state);
+        }
         this.renderMobileMenu(state);
     }
 
