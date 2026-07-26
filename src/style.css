@@ -82,6 +82,35 @@
   #filter-modal:not(.hidden) > div {
     animation: modalSlideIn 220ms cubic-bezier(.2, .8, .2, 1) both;
   }
+
+  /* Pipes table hover indicator sweep */
+  #pipes tbody tr {
+    position: relative;
+  }
+  #pipes tbody tr::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+    background: var(--color-primary, #4ff07f);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.25s ease;
+  }
+  #pipes tbody tr:hover::before {
+    transform: scaleY(1);
+  }
+
+  /* Pipes table row reveal on scroll — hidden only when JS is active */
+  .js-enabled #pipes tbody tr {
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .js-enabled #pipes tbody tr.gt-row-revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes fadeIn {
@@ -110,6 +139,11 @@
   }
 
   .js-enabled .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .js-enabled #pipes tbody tr {
     opacity: 1;
     transform: none;
   }

@@ -28,6 +28,7 @@ export class UIManager {
         this.setupPageActions();
         this.setupAnimations();
         this.setupStatCounters();
+        this.setupPipesRowReveal();
         
         // Subscribe to State Changes
         this.stateManager.subscribe(this.onStateChange.bind(this));
@@ -93,6 +94,23 @@ export class UIManager {
                     ? 'Sorted by price, highest first'
                     : 'Sort inventory');
         });
+    }
+
+    private setupPipesRowReveal(): void {
+        const pipesSection = document.getElementById('pipes');
+        const rows = pipesSection?.querySelectorAll<HTMLElement>('tbody tr');
+        if (!rows || rows.length === 0) return;
+
+        const rowObserver = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                rows.forEach((row, i) => {
+                    row.style.transitionDelay = `${i * 0.08}s`;
+                    row.classList.add('gt-row-revealed');
+                });
+                rowObserver.disconnect();
+            }
+        }, { threshold: 0.2 });
+        rowObserver.observe(pipesSection!);
     }
 
     private setupStatCounters(): void {
