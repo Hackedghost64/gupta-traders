@@ -64,6 +64,16 @@ git branch -M main
 git push -u origin main
 ```
 
+## Continuous integration
+
+This repository includes a GitHub Actions workflow that:
+
+- installs Node.js and dependencies
+- builds the app with `npm run build`
+- deploys `dist/` to GitHub Pages on pushes to `main`
+
+To use GitHub Pages deployment, configure the repository Pages source to use the `gh-pages` branch and the `/` root.
+
 ## Troubleshooting
 
 - If animations don't run on reload, check `index.html` for the GSAP intro logic and `src/ui/UIManager.ts` for scroll reveal handling.
