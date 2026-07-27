@@ -19,6 +19,7 @@ export class PressureGauge {
   private readonly minAngle = -90;
   private readonly maxAngle = 90;
   private readonly maxPressure = 16;
+  private readonly svgOrigin = '100 100';
 
   constructor(_svgRoot: SVGSVGElement) {
     this.needle = _svgRoot.querySelector('[data-gauge-needle]');
@@ -30,19 +31,19 @@ export class PressureGauge {
     const angle = this.minAngle + (clamped / this.maxPressure) * (this.maxAngle - this.minAngle);
 
     if (MotionPreferences.reduced) {
-      this.needle.setAttribute('transform', `rotate(${angle})`);
+      this.needle.setAttribute('transform', `rotate(${angle}, 100, 100)`);
       return;
     }
-    gsap.to(this.needle, { rotation: angle, duration: 0.4, ease: 'power2.out', svgOrigin: '0 0' });
+    gsap.to(this.needle, { rotation: angle, duration: 0.4, ease: 'power2.out', svgOrigin: this.svgOrigin });
   }
 
   reset(): void {
     if (!this.needle) return;
     if (MotionPreferences.reduced) {
-      this.needle.setAttribute('transform', 'rotate(0)');
+      this.needle.setAttribute('transform', 'rotate(0, 100, 100)');
       return;
     }
-    gsap.to(this.needle, { rotation: 0, duration: 0.3, ease: 'power2.out', svgOrigin: '0 0' });
+    gsap.to(this.needle, { rotation: 0, duration: 0.3, ease: 'power2.out', svgOrigin: this.svgOrigin });
   }
 
   static parse(text: string | null): number | null {
