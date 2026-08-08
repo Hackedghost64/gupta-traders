@@ -164,9 +164,20 @@ export class UIManager {
         });
 
         const header = document.getElementById('top-navbar');
+        let ticking = false;
+
+        // ⚡ Bolt: Throttled scroll event listener using requestAnimationFrame
+        // to prevent layout thrashing and main thread blocking on high-frequency scroll events.
+        // The { passive: true } option is also used to improve scroll performance.
         window.addEventListener('scroll', () => {
-            header?.classList.toggle('shadow-md', window.scrollY > 20);
-        });
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    header?.classList.toggle('shadow-md', window.scrollY > 20);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
 
         const filterModal = document.getElementById('filter-modal');
         filterModal?.addEventListener('click', event => {
