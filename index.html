@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta name="description" content="Gupta Traders — Trusted B2B industrial and agricultural equipment supplier in Baikunthpur, Chhattisgarh. Rice mills, flour mills, harvesters, pulverizers, PVC/GI pipes. 25+ years of industry experience.">
-<title>Gupta Traders — Industrial &amp; Agricultural Equipment | Baikunthpur, Chhattisgarh</title>
+<title>Gupta Traders - Industrial</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="/assets/shop_photo.jpg" fetchpriority="high">
@@ -471,7 +471,7 @@
 <div class="flex items-center gap-4">
 <a class="font-headline-md text-headline-md font-bold text-primary dark:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="#hero" data-i18n="str_0">Gupta Traders</a>
 </div>
-<nav class="hidden md:flex items-center gap-8 font-body-md text-body-md font-medium">
+<nav aria-label="Desktop Navigation" class="hidden md:flex items-center gap-8 font-body-md text-body-md font-medium">
 <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200" href="#machinery" data-i18n="str_1">Machinery</a>
 <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200" href="#pipes" data-i18n="str_2">Pipes</a>
 <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200" href="#hardware" data-i18n="str_3">Hardware</a>
@@ -479,12 +479,12 @@
 <a class="text-on-surface-variant dark:text-on-surface-variant hover:text-primary transition-colors duration-200" href="#support" data-i18n="str_5">Support</a>
 </nav>
 <div class="flex items-center gap-4">
-<button aria-label="Toggle Language" class="hidden md:flex items-center justify-center transition-colors group">
-        <div class="relative w-14 h-8 bg-surface-container-high border border-outline-variant rounded-full flex items-center p-1">
-            <div class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-[10px] font-bold text-on-primary transition-transform duration-300" id="header-lang-slider">
+<button type="button" aria-label="Toggle Language" class="hidden md:flex items-center justify-center transition-colors group">
+        <span class="relative w-14 h-8 bg-surface-container-high border border-outline-variant rounded-full flex items-center p-1">
+            <span class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-[10px] font-bold text-on-primary transition-transform duration-300" id="header-lang-slider">
                 <span id="header-lang-text">EN</span>
-            </div>
-        </div>
+            </span>
+        </span>
     </button>
 <a class="hidden md:inline-flex items-center gap-2 bg-primary-container text-on-primary-container px-6 py-2.5 rounded-full font-label-md text-label-md hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background" href="https://wa.me/919589614782" rel="noopener noreferrer" target="_blank">
 <span class="material-symbols-outlined" data-icon="chat" data-weight="fill" data-i18n="str_7">chat</span><span data-i18n="str_8">WhatsApp Sales</span></a>
@@ -496,7 +496,7 @@
 </header>
 <!-- Mobile Navigation Menu -->
 <div class="fixed inset-0 bg-surface/95 backdrop-blur-lg z-40 hidden flex-col pt-24 px-gutter" id="mobile-menu">
-<nav class="flex flex-col gap-6 font-headline-md text-headline-md font-bold">
+<nav aria-label="Mobile Main Navigation" class="flex flex-col gap-6 font-headline-md text-headline-md font-bold">
 <a class="text-on-surface-variant hover:text-primary transition-colors border-b border-outline-variant pb-4 mobile-nav-link" href="#machinery" data-i18n="str_10">Machinery</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors border-b border-outline-variant pb-4 mobile-nav-link" href="#pipes" data-i18n="str_11">Pipes</a>
 <a class="text-on-surface-variant hover:text-primary transition-colors border-b border-outline-variant pb-4 mobile-nav-link" href="#hardware" data-i18n="str_12">Hardware</a>
@@ -506,8 +506,8 @@
 <span class="text-on-surface-variant" data-i18n="str_15">Language</span>
 <div class="flex gap-2"><div class="relative flex items-center bg-surface-container-high rounded-full p-1 border border-outline-variant w-32 h-10 shadow-sm overflow-hidden isolate">
         <div id="lang-slider" class="absolute left-1 top-1 w-[calc(50%-4px)] h-8 bg-primary rounded-full transition-transform duration-300 ease-out z-0 translate-x-0"></div>
-        <button id="btn-en" class="flex-1 relative z-10 text-on-primary font-label-md transition-colors duration-300">EN</button>
-        <button id="btn-hi" class="flex-1 relative z-10 text-on-surface-variant font-label-md transition-colors duration-300">HI</button>
+        <button type="button" id="btn-en" class="flex-1 relative z-10 text-on-primary font-label-md transition-colors duration-300">EN</button>
+        <button type="button" id="btn-hi" class="flex-1 relative z-10 text-on-surface-variant font-label-md transition-colors duration-300">HI</button>
     </div></div>
 </div>
 </nav>
@@ -716,7 +716,7 @@
 <!-- Contact Info -->
 <div class="p-8 lg:p-12 flex flex-col justify-center">
 <h2 class="font-headline-lg text-headline-lg text-on-surface mb-8" data-i18n="str_105">Visit Our Showroom</h2>
-<address class="not-italic flex flex-col gap-6">
+<div class="not-italic flex flex-col gap-6">
 <div class="flex items-start gap-4">
 <div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-primary" data-icon="business" data-i18n="str_106">business</span>
@@ -732,8 +732,8 @@
 </div>
 <div>
 <h3 class="font-label-md text-on-surface mb-1" data-i18n="str_111">Direct Sales Line</h3>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="tel:+919981297111">+91 9981297111</a><br>
-<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="tel:+917987862961">+91 7987862961</a>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="tel:+919981297111">+91&nbsp;9981297111</a><br>
+<a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="tel:+917987862961">+91&nbsp;7987862961</a>
 </div>
 </div>
 <div class="flex items-start gap-4">
@@ -745,7 +745,7 @@
 <p class="font-body-md text-on-surface-variant"><span data-i18n="str_114">Monday - Friday: 08:30 AM - 09:00 PM</span><br><span data-i18n="str_115">Sunday: Closed</span></p>
 </div>
 </div>
-</address>
+</div>
 <div class="mt-8 pt-8 border-t border-outline-variant flex flex-col sm:flex-row gap-4">
 <a class="flex-1 inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-md font-bold hover:opacity-90 transition-opacity" href="https://wa.me/919589614782" target="_blank">
 <span class="material-symbols-outlined" data-icon="chat" data-weight="fill" data-i18n="str_116">chat</span><span data-i18n="str_117">Message on WhatsApp</span></a>
@@ -819,7 +819,7 @@
 <!-- Links Column -->
 <div class="flex flex-col gap-3">
 <h3 class="font-label-md text-on-surface mb-2" data-i18n="str_122">Quick Links</h3>
-<nav class="flex flex-col gap-2 font-label-md text-label-md">
+<nav aria-label="Footer Links" class="flex flex-col gap-2 font-label-md text-label-md">
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="#machinery" data-i18n="str_123">Machinery Catalog</a>
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="#specifications" data-i18n="str_124">Technical Specs</a>
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="#location" data-i18n="str_125">Contact Us</a>
@@ -829,7 +829,7 @@
 <!-- Legal Column -->
 <div class="flex flex-col gap-3 md:items-end">
 <h3 class="font-label-md text-on-surface mb-2" data-i18n="str_126">Legal</h3>
-<nav class="flex flex-col gap-2 font-label-md text-label-md md:items-end">
+<nav aria-label="Footer Legal" class="flex flex-col gap-2 font-label-md text-label-md md:items-end">
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="/privacy.html" data-i18n="str_127">Privacy Policy</a>
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="/terms.html" data-i18n="str_128">Terms of Service</a>
 </nav>
@@ -841,13 +841,13 @@
 <div class="bg-surface-container-high p-6 rounded-2xl border border-outline-variant w-11/12 max-w-md shadow-2xl">
     <div class="flex justify-between items-center mb-6">
         <h3 id="filter-modal-title" class="font-headline-md text-on-surface" data-i18n="filter_title">Filter Inventory</h3>
-        <button id="close-filter-btn" type="button" aria-label="Close filter dialog" class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
+        <button tabindex="-1" id="close-filter-btn" type="button" aria-label="Close filter dialog" class="text-on-surface-variant hover:text-primary"><span class="material-symbols-outlined">close</span></button>
     </div>
     <div class="flex flex-col gap-4">
-        <button class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="all" data-i18n="filter_all">All Equipment</button>
-        <button class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="harvester" data-i18n="filter_harvester">Harvesters</button>
-        <button class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="milling" data-i18n="filter_milling">Milling Machines</button>
-        <button class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="tiller" data-i18n="filter_tiller">Rotary Tillers</button>
+        <button tabindex="-1" type="button" class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="all" data-i18n="filter_all">All Equipment</button>
+        <button tabindex="-1" type="button" class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="harvester" data-i18n="filter_harvester">Harvesters</button>
+        <button tabindex="-1" type="button" class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="milling" data-i18n="filter_milling">Milling Machines</button>
+        <button tabindex="-1" type="button" class="filter-option text-left px-4 py-3 rounded-lg border border-outline-variant hover:bg-primary-container hover:text-on-primary-container text-on-surface transition-colors" data-category="tiller" data-i18n="filter_tiller">Rotary Tillers</button>
     </div>
 </div></div>
 

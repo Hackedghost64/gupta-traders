@@ -7,7 +7,6 @@ import { BUSINESS } from '../../config';
 import { MotionPreferences } from '../../core/MotionPreferences';
 import gsap from 'gsap';
 import { Flip } from 'gsap/Flip';
-import DOMPurify from 'dompurify';
 
 gsap.registerPlugin(Flip);
 
@@ -114,7 +113,7 @@ export class InventoryGrid {
 
         const encodedMessage = encodeURIComponent(item.whatsappMessage);
 
-        article.innerHTML = DOMPurify.sanitize(`
+        article.innerHTML = `
             <div class="relative h-64 @xl:h-auto flex-shrink-0 overflow-hidden bg-surface-bright p-4 @xl:w-5/12 flex items-center justify-center">
                 <img src="${item.image}" alt="${imageAlt}" loading="lazy" width="400" height="400" class="w-full h-full object-contain mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500 scale-95 group-hover:scale-100" />
                 ${badgeHtml}
@@ -131,7 +130,7 @@ export class InventoryGrid {
                     </a>
                 </div>
             </div>
-        `);
+        `;
 
         return article;
     }
