@@ -40,6 +40,7 @@ export class UIManager {
         
         // Initial Render
         this.renderLanguage(this.stateManager.getState());
+        this.renderFilterState(this.stateManager.getState());
     }
 
     private setupLanguageToggle(): void {
@@ -267,6 +268,18 @@ export class UIManager {
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
         modal.querySelector<HTMLElement>('button')?.focus();
+
+        const currentCategory = this.stateManager.getState().activeCategory;
+        const filterOptions = document.querySelectorAll('.filter-option');
+        filterOptions.forEach(option => {
+            const isSelected = option.getAttribute('data-category') === currentCategory;
+            option.setAttribute('aria-pressed', String(isSelected));
+            if (isSelected) {
+                option.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold', 'border-primary');
+            } else {
+                option.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold', 'border-primary');
+            }
+        });
     }
 
     private closeFilterModal(): void {
@@ -294,6 +307,20 @@ export class UIManager {
             this.renderLanguage(state);
         }
         this.renderMobileMenu(state);
+        this.renderFilterState(state);
+    }
+
+    private renderFilterState(state: AppState): void {
+        const filterBtn = document.getElementById('filter-btn');
+        if (!filterBtn) return;
+
+        if (state.activeCategory !== 'all') {
+            filterBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'border-primary');
+            filterBtn.classList.remove('bg-surface-variant', 'text-on-surface');
+        } else {
+            filterBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-primary');
+            filterBtn.classList.add('bg-surface-variant', 'text-on-surface');
+        }
     }
 
     private renderLanguage(state: AppState): void {
