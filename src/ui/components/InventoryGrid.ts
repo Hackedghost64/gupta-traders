@@ -91,18 +91,30 @@ export class InventoryGrid {
         const article = document.createElement('article');
         article.className = 'product-card bg-surface-container-high rounded-2xl border border-outline-variant overflow-hidden group flex flex-col @xl:flex-row h-full fade-in @container';
 
-        const name = this.i18nManager.translate(item.nameKey, lang);
-        const imageAlt = this.i18nManager.translate(item.imageAlt, lang);
-        const btnText = this.i18nManager.translate('btn_inquire', lang);
+        // Escape HTML to prevent XSS
+        const escapeHtml = (unsafe: string) => {
+            if (!unsafe) return '';
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        };
+
+        const name = escapeHtml(this.i18nManager.translate(item.nameKey, lang));
+        const imageAlt = escapeHtml(this.i18nManager.translate(item.imageAlt, lang));
+        const btnText = escapeHtml(this.i18nManager.translate('btn_inquire', lang));
+        const safeImage = escapeHtml(item.image);
 
         let badgeHtml = '';
         if (item.badge) {
-            badgeHtml = `<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-md text-xs font-bold">${item.badge}</div>`;
+            badgeHtml = `<div class="absolute top-4 right-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-md text-xs font-bold">${escapeHtml(item.badge)}</div>`;
         }
 
         let specsHtml = '';
         item.specs.forEach(spec => {
-            const specText = this.i18nManager.translate(spec.key, lang);
+            const specText = escapeHtml(this.i18nManager.translate(spec.key, lang));
             specsHtml += `
                 <li class="flex items-start gap-2" data-spec-line>
                     <span class="material-symbols-outlined text-primary text-[18px] mt-0.5" data-icon="check_circle" data-weight="fill">check_circle</span>
@@ -115,7 +127,7 @@ export class InventoryGrid {
 
         article.innerHTML = `
             <div class="relative h-64 @xl:h-auto flex-shrink-0 overflow-hidden bg-surface-bright p-4 @xl:w-5/12 flex items-center justify-center">
-                <img src="${item.image}" alt="${imageAlt}" loading="lazy" width="400" height="400" class="w-full h-full object-contain mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500 scale-95 group-hover:scale-100" />
+                <img src="${safeImage}" alt="${imageAlt}" loading="lazy" width="400" height="400" class="w-full h-full object-contain mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500 scale-95 group-hover:scale-100" />
                 ${badgeHtml}
             </div>
             <div class="p-6 flex flex-col flex-grow @xl:w-7/12 @xl:justify-center">
