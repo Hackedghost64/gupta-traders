@@ -312,14 +312,37 @@ export class UIManager {
 
     private renderFilterState(state: AppState): void {
         const filterBtn = document.getElementById('filter-btn');
-        if (!filterBtn) return;
+        const sortBtn = document.getElementById('sort-btn');
 
-        if (state.activeCategory !== 'all') {
-            filterBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'border-primary');
-            filterBtn.classList.remove('bg-surface-variant', 'text-on-surface');
-        } else {
-            filterBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-primary');
-            filterBtn.classList.add('bg-surface-variant', 'text-on-surface');
+        if (filterBtn) {
+            if (state.activeCategory !== 'all') {
+                filterBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                filterBtn.classList.remove('bg-surface-variant', 'text-on-surface');
+                filterBtn.setAttribute('aria-pressed', 'true');
+            } else {
+                filterBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                filterBtn.classList.add('bg-surface-variant', 'text-on-surface');
+                filterBtn.setAttribute('aria-pressed', 'false');
+            }
+        }
+
+        if (sortBtn) {
+            const icon = sortBtn.querySelector('.material-symbols-outlined');
+            if (state.sortOrder !== null) {
+                sortBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                sortBtn.classList.remove('bg-surface', 'text-on-surface');
+                sortBtn.setAttribute('aria-pressed', 'true');
+                if (icon) {
+                    icon.textContent = state.sortOrder === 'price-asc' ? 'arrow_upward' : 'arrow_downward';
+                }
+            } else {
+                sortBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                sortBtn.classList.add('bg-surface', 'text-on-surface');
+                sortBtn.setAttribute('aria-pressed', 'false');
+                if (icon) {
+                    icon.textContent = 'sort';
+                }
+            }
         }
     }
 
