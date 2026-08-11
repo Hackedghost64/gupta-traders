@@ -481,8 +481,8 @@
 </nav>
 <div class="flex items-center gap-4">
 <button type="button" aria-label="Toggle Language" class="hidden md:flex items-center justify-center transition-colors group">
-        <span class="relative w-14 h-8 bg-surface-container-high border border-outline-variant rounded-full flex items-center p-1">
-            <span class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-[10px] font-bold text-on-primary transition-transform duration-300" id="header-lang-slider">
+        <span class="relative w-14 h-8 bg-surface-container-high border border-outline-variant rounded-full flex items-center p-1 block">
+            <span class="w-6 h-6 bg-primary rounded-full flex items-center justify-center text-[10px] font-bold text-on-primary transition-transform duration-300 block" id="header-lang-slider">
                 <span id="header-lang-text">EN</span>
             </span>
         </span>
@@ -570,7 +570,7 @@
 <p class="font-body-md text-body-md text-on-surface-variant max-w-xl" data-i18n="str_39">Industrial-grade machinery designed for high-yield operations and uncompromised durability.</p>
 </div>
 <div class="flex gap-2 w-full md:w-auto">
-<button id="filter-btn" type="button" class="flex-1 md:flex-none px-4 py-2 rounded-full border border-outline-variant bg-surface-variant text-on-surface font-label-md flex items-center justify-center gap-2 hover:bg-surface-container">
+<button type="button" id="filter-btn"  class="flex-1 md:flex-none px-4 py-2 rounded-full border border-outline-variant bg-surface-variant text-on-surface font-label-md flex items-center justify-center gap-2 hover:bg-surface-container">
 <span class="material-symbols-outlined text-sm" data-icon="filter_list" data-i18n="str_40">filter_list</span><span data-i18n="str_41">Filter</span></button>
 <button id="sort-btn" type="button" class="flex-1 md:flex-none px-4 py-2 rounded-full border border-outline-variant bg-surface text-on-surface font-label-md flex items-center justify-center gap-2 hover:bg-surface-container" aria-label="Sort inventory">
 <span class="material-symbols-outlined text-sm" data-icon="sort" data-i18n="str_42">sort</span><span data-i18n="str_43">Sort</span></button>
@@ -598,7 +598,7 @@
 </div>
 </div>
 <div class="mt-stack-md flex justify-center">
-<button id="view-catalog-btn" type="button" class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"><span data-i18n="str_72">View Full Catalog</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward" data-i18n="str_73">arrow_forward</span>
+<button type="button" id="view-catalog-btn"  class="font-label-md text-label-md text-on-surface hover:text-primary transition-colors flex items-center gap-2"><span data-i18n="str_72">View Full Catalog</span><span class="material-symbols-outlined text-sm" data-icon="arrow_forward" data-i18n="str_73">arrow_forward</span>
 </button>
 </div>
 </section>
@@ -707,13 +707,13 @@
 <!-- Contact Info -->
 <div class="p-8 lg:p-12 flex flex-col justify-center">
 <h2 class="font-headline-lg text-headline-lg text-on-surface mb-8" data-i18n="str_105">Visit Our Showroom</h2>
-<address class="not-italic flex flex-col gap-6">
+<div class="not-italic flex flex-col gap-6">
 <div class="flex items-start gap-4">
 <div class="w-10 h-10 rounded-full bg-surface-variant flex items-center justify-center shrink-0">
 <span class="material-symbols-outlined text-primary" data-icon="business" data-i18n="str_106">business</span>
 </div>
 <div>
-<span class="font-label-md text-on-surface mb-1" data-i18n="str_107">Gupta Traders Industrial Showroom</span>
+<strong class="font-label-md text-on-surface mb-1" data-i18n="str_107">Gupta Traders Industrial Showroom</strong>
 <p class="font-body-md text-on-surface-variant"><span data-i18n="str_108">Main Road Baikunthpur,</span><br><span data-i18n="str_109">Chhattisgarh 497335 (Beside Kumar Medical)</span></p>
 </div>
 </div>
@@ -722,7 +722,7 @@
 <span class="material-symbols-outlined text-primary" data-icon="call" data-i18n="str_110">call</span>
 </div>
 <div>
-<span class="font-label-md text-on-surface mb-1" data-i18n="str_111">Direct Sales Line</span>
+<strong class="font-label-md text-on-surface mb-1" data-i18n="str_111">Direct Sales Line</strong>
 <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="tel:+919981297111">+91&nbsp;9981297111</a><br>
 <a class="font-body-md text-on-surface-variant hover:text-primary transition-colors" href="tel:+917987862961">+91&nbsp;7987862961</a>
 </div>
@@ -732,11 +732,11 @@
 <span class="material-symbols-outlined text-primary" data-icon="schedule" data-i18n="str_112">schedule</span>
 </div>
 <div>
-<span class="font-label-md text-on-surface mb-1" data-i18n="str_113">Operating Hours</span>
+<strong class="font-label-md text-on-surface mb-1" data-i18n="str_113">Operating Hours</strong>
 <p class="font-body-md text-on-surface-variant"><span data-i18n="str_114">Monday - Friday: 08:30 AM - 09:00 PM</span><br><span data-i18n="str_115">Sunday: Closed</span></p>
 </div>
 </div>
-</address>
+</div>
 <div class="mt-8 pt-8 border-t border-outline-variant flex flex-col sm:flex-row gap-4">
 <a class="flex-1 inline-flex items-center justify-center gap-2 bg-primary-container text-on-primary-container px-6 py-3 rounded-full font-label-md font-bold hover:opacity-90 transition-opacity" href="https://wa.me/919589614782" target="_blank">
 <span class="material-symbols-outlined" data-icon="chat" data-weight="fill" data-i18n="str_116">chat</span><span data-i18n="str_117">Message on WhatsApp</span></a>
@@ -784,12 +784,12 @@
                 </tbody>
             </table>
         </div>
-    </section><section id="support" class="py-stack-lg px-gutter max-w-container-max mx-auto scroll-mt-24 bg-surface-container-lowest rounded-3xl border border-outline-variant my-stack-lg">
+    </section><section aria-label="Support Section" class="py-stack-lg px-gutter max-w-container-max mx-auto scroll-mt-24 bg-surface-container-lowest rounded-3xl border border-outline-variant my-stack-lg">
         <div class="flex flex-col md:flex-row gap-12 items-center">
             <div class="flex-1">
                 <h2 class="font-display-md text-display-md text-on-surface mb-6">24/7 Priority Support</h2>
                 <p class="font-body-lg text-on-surface-variant mb-8">Downtime is expensive. Our field engineering team is on standby to ensure your heavy machinery remains operational.</p>
-                <button id="support-button" type="button" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-label-lg hover:bg-primary/90 transition-colors">
+                <button type="button" id="support-button" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-full font-label-lg hover:bg-primary/90 transition-colors">
                     <span class="material-symbols-outlined" data-icon="support_agent">support_agent</span>
                     Contact Support
                 </button>
@@ -810,7 +810,7 @@
 <!-- Links Column -->
 <div class="flex flex-col gap-3">
 <h3 class="font-label-md text-on-surface mb-2" data-i18n="str_122">Quick Links</h3>
-<nav aria-label="Quick links" class="flex flex-col gap-2 font-label-md text-label-md">
+<nav aria-label="Footer Quick Links" class="flex flex-col gap-2 font-label-md text-label-md">
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="#machinery" data-i18n="str_123">Machinery Catalog</a>
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="#specifications" data-i18n="str_124">Technical Specs</a>
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="#location" data-i18n="str_125">Contact Us</a>
@@ -820,7 +820,7 @@
 <!-- Legal Column -->
 <div class="flex flex-col gap-3 md:items-end">
 <h3 class="font-label-md text-on-surface mb-2" data-i18n="str_126">Legal</h3>
-<nav aria-label="Legal links" class="flex flex-col gap-2 font-label-md text-label-md md:items-end">
+<nav aria-label="Footer Legal Links" class="flex flex-col gap-2 font-label-md text-label-md md:items-end">
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="/privacy.html" data-i18n="str_127">Privacy Policy</a>
 <a class="text-on-surface-variant hover:text-primary-fixed-dim transition-colors w-fit focus:outline-none focus:ring-2 focus:ring-primary rounded-sm" href="/terms.html" data-i18n="str_128">Terms of Service</a>
 </nav>

@@ -40,6 +40,7 @@ export class UIManager {
         
         // Initial Render
         this.renderLanguage(this.stateManager.getState());
+        this.renderFilterState(this.stateManager.getState());
     }
 
     private setupLanguageToggle(): void {
@@ -164,9 +165,20 @@ export class UIManager {
         });
 
         const header = document.getElementById('top-navbar');
+        let ticking = false;
+
+        // ⚡ Bolt: Throttled scroll event listener using requestAnimationFrame
+        // to prevent layout thrashing and main thread blocking on high-frequency scroll events.
+        // The { passive: true } option is also used to improve scroll performance.
         window.addEventListener('scroll', () => {
-            header?.classList.toggle('shadow-md', window.scrollY > 20);
-        });
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    header?.classList.toggle('shadow-md', window.scrollY > 20);
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
 
         const filterModal = document.getElementById('filter-modal');
         filterModal?.addEventListener('click', event => {
@@ -256,6 +268,18 @@ export class UIManager {
         modal.classList.remove('hidden');
         modal.setAttribute('aria-hidden', 'false');
         modal.querySelector<HTMLElement>('button')?.focus();
+
+        const currentCategory = this.stateManager.getState().activeCategory;
+        const filterOptions = document.querySelectorAll('.filter-option');
+        filterOptions.forEach(option => {
+            const isSelected = option.getAttribute('data-category') === currentCategory;
+            option.setAttribute('aria-pressed', String(isSelected));
+            if (isSelected) {
+                option.classList.add('bg-primary-container', 'text-on-primary-container', 'font-bold', 'border-primary');
+            } else {
+                option.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-bold', 'border-primary');
+            }
+        });
     }
 
     private closeFilterModal(): void {
@@ -283,6 +307,43 @@ export class UIManager {
             this.renderLanguage(state);
         }
         this.renderMobileMenu(state);
+        this.renderFilterState(state);
+    }
+
+    private renderFilterState(state: AppState): void {
+        const filterBtn = document.getElementById('filter-btn');
+        const sortBtn = document.getElementById('sort-btn');
+
+        if (filterBtn) {
+            if (state.activeCategory !== 'all') {
+                filterBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                filterBtn.classList.remove('bg-surface-variant', 'text-on-surface');
+                filterBtn.setAttribute('aria-pressed', 'true');
+            } else {
+                filterBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                filterBtn.classList.add('bg-surface-variant', 'text-on-surface');
+                filterBtn.setAttribute('aria-pressed', 'false');
+            }
+        }
+
+        if (sortBtn) {
+            const icon = sortBtn.querySelector('.material-symbols-outlined');
+            if (state.sortOrder !== null) {
+                sortBtn.classList.add('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                sortBtn.classList.remove('bg-surface', 'text-on-surface');
+                sortBtn.setAttribute('aria-pressed', 'true');
+                if (icon) {
+                    icon.textContent = state.sortOrder === 'price-asc' ? 'arrow_upward' : 'arrow_downward';
+                }
+            } else {
+                sortBtn.classList.remove('bg-primary-container', 'text-on-primary-container', 'border-primary');
+                sortBtn.classList.add('bg-surface', 'text-on-surface');
+                sortBtn.setAttribute('aria-pressed', 'false');
+                if (icon) {
+                    icon.textContent = 'sort';
+                }
+            }
+        }
     }
 
     private renderLanguage(state: AppState): void {
