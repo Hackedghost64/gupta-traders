@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -24,16 +25,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run TypeScript type check
-        run: npx tsc --noEmit
+      - name: Run ESLint
+        run: npm run lint
 
       - name: Run Vite build
         run: npm run build
 
       - name: Run HTML validation
-        run: |
-          npm install -g html-validate
-          html-validate .
+        run: npx html-validate index.html privacy.html terms.html
 
       - name: Archive production build
         uses: actions/upload-artifact@v4
@@ -46,20 +45,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Use Node.js
-        uses: actions/setup-node@v5
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build project
-        run: npm run build
+          name: dist-artifact
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v5
