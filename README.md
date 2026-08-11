@@ -76,10 +76,11 @@ git push -u origin main
 This repository includes a GitHub Actions workflow that:
 
 - installs Node.js and dependencies
+- runs ESLint, TypeScript type checking, and HTML validation
 - builds the app with `npm run build`
-- deploys `dist/` to GitHub Pages on pushes to `main`
+- deploys `dist/` to GitHub Pages on pushes to `main` (via the official `actions/deploy-pages`)
 
-To use GitHub Pages deployment, configure the repository Pages source to use the `gh-pages` branch and the `/` root.
+The workflow is defined in `.github/workflows/ci.yml` and publishes the site to GitHub Pages using the Actions-based deployment source. No extra configuration is needed once Pages is enabled for the repository.
 
 ## Troubleshooting
 
