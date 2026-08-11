@@ -26,7 +26,7 @@ export class InventoryManager {
         
         try {
             Logger.info('Fetching inventory data...');
-            const response = await fetch('/data/inventory.json');
+            const response = await fetch(`${import.meta.env.BASE_URL}data/inventory.json`);
             assert(response.ok, `Failed to load inventory data: ${response.statusText}`);
             
             const data = await response.json();
