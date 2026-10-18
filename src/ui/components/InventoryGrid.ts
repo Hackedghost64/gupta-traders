@@ -127,7 +127,7 @@ export class InventoryGrid {
 
         article.innerHTML = `
             <div class="relative h-64 @xl:h-auto flex-shrink-0 overflow-hidden bg-surface-bright p-4 @xl:w-5/12 flex items-center justify-center">
-                <img src="${safeImage}" alt="${imageAlt}" loading="lazy" width="400" height="400" class="w-full h-full object-contain mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500 scale-95 group-hover:scale-100" />
+                <img src="${safeImage}" alt="${imageAlt}" loading="lazy" width="400" height="400" class="w-full h-full object-contain transition-transform duration-300 scale-95 group-hover:scale-100" onerror="this.src='./assets/pump.webp'" />
                 ${badgeHtml}
             </div>
             <div class="p-6 flex flex-col flex-grow @xl:w-7/12 @xl:justify-center">

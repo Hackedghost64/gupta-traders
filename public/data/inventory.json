@@ -1,122 +1,80 @@
 [
   {
-    "id": "1",
-    "categoryId": "harvester",
-    "nameKey": "prod_1_name",
-    "price": 45000,
-    "badge": "New Arrival",
-    "specs": [
-      { "key": "prod_1_spec_1" },
-      { "key": "prod_1_spec_2" },
-      { "key": "prod_1_spec_3" }
-    ],
-    "image": "./assets/harvester.jpg",
-    "imageAlt": "prod_1_alt",
-    "whatsappMessage": "I'm interested in the GT-900 Combine Harvester"
-  },
-  {
-    "id": "2",
+    "id": "mini-rice-mill-3675",
     "categoryId": "milling",
-    "nameKey": "prod_2_name",
-    "price": 12000,
-    "badge": "Popular",
+    "nameKey": "Mini Rice Mill (3 HP)",
+    "price": 24500,
+    "badge": "Heavy tach • ₹24,500",
     "specs": [
-      { "key": "prod_2_spec_1" },
-      { "key": "prod_2_spec_2" },
-      { "key": "prod_2_spec_3" }
+      { "key": "Model: 6W400" },
+      { "key": "Motor: 3 HP Electric" },
+      { "key": "Capacity: 150 kg/hr" },
+      { "key": "Weight: 44 kg" }
     ],
-    "image": "./assets/flour_mill.jpg",
-    "imageAlt": "prod_2_alt",
-    "whatsappMessage": "I'm interested in the Commercial Flour Mill (Atta Chakki)"
+    "image": "https://res.cloudinary.com/zkfnbyg6/image/upload/v1792316173/pump_dekho_products/abvqw7ldi0f41gq7jx4f.png",
+    "imageAlt": "Mini Rice Mill 3 HP",
+    "whatsappMessage": "नमस्ते गुप्ता ट्रेडर्स, मुझे Mini Rice Mill (₹24,500) के बारे में जानकारी चाहिए।"
   },
   {
-    "id": "3",
-    "categoryId": "milling",
-    "nameKey": "prod_rice_mill_name",
-    "price": 38000,
-    "badge": "Commercial",
-    "specs": [
-      { "key": "prod_rice_mill_spec_1" },
-      { "key": "prod_rice_mill_spec_2" },
-      { "key": "prod_rice_mill_spec_3" }
-    ],
-    "image": "./assets/flour_mill.jpg",
-    "imageAlt": "prod_rice_mill_name",
-    "whatsappMessage": "I'm interested in the Commercial Rice Mill & De-husker"
-  },
-  {
-    "id": "4",
-    "categoryId": "milling",
-    "nameKey": "prod_pulverizer_name",
-    "price": 24000,
-    "badge": "Industrial",
-    "specs": [
-      { "key": "prod_pulverizer_spec_1" },
-      { "key": "prod_pulverizer_spec_2" },
-      { "key": "prod_pulverizer_spec_3" }
-    ],
-    "image": "./assets/flour_mill.jpg",
-    "imageAlt": "prod_pulverizer_name",
-    "whatsappMessage": "I'm interested in the Industrial Pulverizer"
-  },
-  {
-    "id": "5",
+    "id": "mono-block-pump-8015",
     "categoryId": "pumps",
-    "nameKey": "prod_mono_pump_name",
+    "nameKey": "Texmo Mono Block Pump (0.5 HP)",
     "price": 5800,
-    "badge": "Texmo Genuine",
+    "badge": "Texmo Genuine • ₹5,800",
     "specs": [
-      { "key": "prod_mono_pump_spec_1" },
-      { "key": "prod_mono_pump_spec_2" },
-      { "key": "prod_mono_pump_spec_3" }
+      { "key": "Power: 0.5 HP (200-240V)" },
+      { "key": "Speed: 2800 RPM Copper Wound" },
+      { "key": "Set: 25-25 ft Suction Pipe & Foot Valve" }
     ],
-    "image": "./assets/pump.webp",
-    "imageAlt": "prod_mono_pump_name",
-    "whatsappMessage": "I'm interested in the Texmo Mono Block Water Pump"
+    "image": "https://res.cloudinary.com/zkfnbyg6/image/upload/v1788524570/pump_dekho_products/mdn9nx5dzknk8ov3ophm.jpg",
+    "imageAlt": "Texmo Monoblock Pump 0.5 HP",
+    "whatsappMessage": "नमस्ते गुप्ता ट्रेडर्स, मुझे Texmo Mono Block Pump (₹5,800) के बारे में जानकारी चाहिए।"
   },
   {
-    "id": "6",
+    "id": "petrol-pump-2169",
     "categoryId": "pumps",
-    "nameKey": "prod_priming_pump_name",
+    "nameKey": "Honda Petrol Water Pump (2 HP)",
+    "price": 21500,
+    "badge": "Honda • ₹21,500",
+    "specs": [
+      { "key": "Engine: 2 HP Honda Petrol" },
+      { "key": "Speed: 3600 RPM" },
+      { "key": "Delivery: 50mm Outlet, 12m Head" }
+    ],
+    "image": "https://res.cloudinary.com/zkfnbyg6/image/upload/v1792315293/pump_dekho_products/k00tyvrs3ooqox4xg61s.jpg",
+    "imageAlt": "Honda Petrol Water Pump",
+    "whatsappMessage": "नमस्ते गुप्ता ट्रेडर्स, मुझे Honda Petrol Water Pump (₹21,500) के बारे में जानकारी चाहिए।"
+  },
+  {
+    "id": "self-priming-6794",
+    "categoryId": "pumps",
+    "nameKey": "Texmo Self-Priming Pump (1.0 HP)",
+    "price": 7800,
+    "badge": "Texmo Genuine • ₹7,800",
+    "specs": [
+      { "key": "Power: 1.0 HP (0.75 kW)" },
+      { "key": "Discharge: 1600 LPH" },
+      { "key": "Size: 25 x 25 mm Pipeline" },
+      { "key": "Speed: 2800 RPM" }
+    ],
+    "image": "https://res.cloudinary.com/zkfnbyg6/image/upload/v1792317660/pump_dekho_products/fscyoqifq3fjaawakopt.jpg",
+    "imageAlt": "Texmo Self-Priming Pump 1 HP",
+    "whatsappMessage": "नमस्ते गुप्ता ट्रेडर्स, मुझे Texmo Self-Priming Pump (₹7,800) के बारे में जानकारी चाहिए।"
+  },
+  {
+    "id": "self-priming-pump-4803",
+    "categoryId": "pumps",
+    "nameKey": "Texmo Heavy Self-Priming Pump (1.0 HP)",
     "price": 7900,
-    "badge": "Top Rated",
+    "badge": "Top Rated • ₹7,900",
     "specs": [
-      { "key": "prod_priming_pump_spec_1" },
-      { "key": "prod_priming_pump_spec_2" },
-      { "key": "prod_priming_pump_spec_3" }
+      { "key": "Power: 1.0 HP Single Phase (240V)" },
+      { "key": "Head: Up to 21 Meters (100 ft)" },
+      { "key": "Speed: 2800 RPM" },
+      { "key": "Application: Deep Water Pumping" }
     ],
-    "image": "./assets/pump.webp",
-    "imageAlt": "prod_priming_pump_name",
-    "whatsappMessage": "I'm interested in the Texmo Self Priming Pump"
-  },
-  {
-    "id": "7",
-    "categoryId": "pipes",
-    "nameKey": "prod_irrigation_pipes_name",
-    "price": 3200,
-    "badge": "ISI Certified",
-    "specs": [
-      { "key": "prod_irrigation_pipes_spec_1" },
-      { "key": "prod_irrigation_pipes_spec_2" },
-      { "key": "prod_irrigation_pipes_spec_3" }
-    ],
-    "image": "./assets/pipes.webp",
-    "imageAlt": "prod_irrigation_pipes_name",
-    "whatsappMessage": "I'm interested in Irrigation Piping Systems"
-  },
-  {
-    "id": "8",
-    "categoryId": "tiller",
-    "nameKey": "prod_3_name",
-    "price": 8000,
-    "badge": null,
-    "specs": [
-      { "key": "prod_3_spec_1" },
-      { "key": "prod_3_spec_2" },
-      { "key": "prod_3_spec_3" }
-    ],
-    "image": "./assets/tiller.jpg",
-    "imageAlt": "prod_3_alt",
-    "whatsappMessage": "I'm interested in the Rotary Tiller RX"
+    "image": "https://res.cloudinary.com/zkfnbyg6/image/upload/v1788523197/pump_dekho_products/pz85oxmaozjv0aygyhfq.jpg",
+    "imageAlt": "Texmo Self-Priming Pump 100ft",
+    "whatsappMessage": "नमस्ते गुप्ता ट्रेडर्स, मुझे Texmo Self-Priming Pump (₹7,900) के बारे में जानकारी चाहिए।"
   }
 ]

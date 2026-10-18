@@ -58,12 +58,11 @@ export class InventoryManager {
             const docs = json.documents || [];
             if (!Array.isArray(docs) || docs.length === 0) return;
 
-            const existingIds = new Set(this.items.map(item => item.id));
             const liveItems: InventoryItem[] = [];
 
             for (const doc of docs) {
                 const docId = doc.name ? doc.name.split('/').pop() : '';
-                if (!docId || existingIds.has(docId)) continue;
+                if (!docId) continue;
 
                 const f = doc.fields || {};
                 const name = f.name?.stringValue || '';
@@ -72,15 +71,13 @@ export class InventoryManager {
                 const price = f.price?.integerValue ? Number(f.price.integerValue) : (f.price?.doubleValue ? Number(f.price.doubleValue) : 0);
                 const category = (f.category?.stringValue || '').toLowerCase();
                 const brand = f.brand?.stringValue || '';
-                const section = f.section?.stringValue || null;
                 const images = f.imageUrls?.arrayValue?.values || [];
                 const imageUrl = images.length > 0 && images[0].stringValue ? images[0].stringValue : './assets/pump.webp';
 
                 let categoryId = 'pumps';
-                if (category.includes('pipe')) categoryId = 'pipes';
-                else if (category.includes('mill') || category.includes('chakki')) categoryId = 'milling';
+                if (category.includes('mill') || category.includes('chakki')) categoryId = 'milling';
                 else if (category.includes('harvest')) categoryId = 'harvester';
-                else if (category.includes('tiller')) categoryId = 'tiller';
+                else if (category.includes('pipe')) categoryId = 'pipes';
 
                 const specsList: InventorySpec[] = [];
                 if (f.specs?.mapValue?.fields) {
@@ -91,21 +88,24 @@ export class InventoryManager {
                     }
                 }
 
+                const priceFormatted = price > 0 ? `₹${price.toLocaleString('en-IN')}` : '';
+                const badgeText = brand ? `${brand}${priceFormatted ? ` • ${priceFormatted}` : ''}` : (priceFormatted || 'In Stock');
+
                 liveItems.push({
                     id: docId,
                     categoryId,
                     nameKey: name,
                     price,
-                    badge: section === 'trending' ? '🔥 Trending' : (brand || 'In Stock'),
-                    specs: specsList.length > 0 ? specsList : [{ key: `${brand} Genuine Hardware` }],
+                    badge: badgeText,
+                    specs: specsList.length > 0 ? specsList : [{ key: `${brand || 'Genuine'} Equipment` }],
                     image: imageUrl,
                     imageAlt: name,
-                    whatsappMessage: `Hi Gupta Traders, I am interested in ${name} (₹${price}) from your catalog.`,
+                    whatsappMessage: `नमस्ते गुप्ता ट्रेडर्स, मुझे ${name}${priceFormatted ? ` (${priceFormatted})` : ''} के बारे में जानकारी चाहिए।`,
                 });
             }
 
             if (liveItems.length > 0) {
-                this.items = [...liveItems, ...this.items];
+                this.items = liveItems;
                 Logger.info(`Successfully synced ${liveItems.length} live products from Pump Dekho Firestore.`);
             }
         } catch (e) {

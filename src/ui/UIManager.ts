@@ -121,10 +121,7 @@ export class UIManager {
 
     private setupPressureGauge(): void {
         const svgRoot = document.getElementById('pressure-gauge-container')?.querySelector<SVGSVGElement>('svg');
-        if (!svgRoot) {
-            Logger.warn('PressureGauge: SVG element not found');
-            return;
-        }
+        if (!svgRoot) return;
 
         const gauge = new PressureGauge(svgRoot);
         const rows = document.querySelectorAll<HTMLElement>('#pipes tbody tr');
