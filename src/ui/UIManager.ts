@@ -12,7 +12,7 @@ export class UIManager {
     private stateManager: StateManager;
     private i18nManager: I18nManager;
     private lastFocusedElement: HTMLElement | null = null;
-    private currentLanguage: string = 'en';
+    private currentLanguage: string = 'hi';
 
     constructor(stateManager: StateManager, i18nManager: I18nManager) {
         this.stateManager = stateManager;

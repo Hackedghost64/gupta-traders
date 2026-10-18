@@ -28,11 +28,11 @@ export class I18nManager {
 
         // Fallback to English
         const enDict = this.locales['en'];
-        assert(enDict !== undefined, 'English fallback dictionary must be present in window.__LOCALES__.');
-        
-        const fallbackValue = enDict[key];
-        assert(fallbackValue !== undefined, `Missing translation key: "${key}" in both "${lang}" and "en" dictionaries.`);
+        if (enDict && enDict[key]) {
+            return enDict[key];
+        }
 
-        return fallbackValue;
+        // If key is a literal text or dynamically loaded catalog item, return key gracefully
+        return key;
     }
 }

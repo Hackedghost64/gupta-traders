@@ -16,7 +16,7 @@ export class StateManager {
 
     private constructor() {
         this.state = {
-            language: 'en',
+            language: 'hi',
             isMobileMenuOpen: false,
             activeCategory: 'all',
             sortOrder: null,

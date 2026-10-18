@@ -6,17 +6,11 @@
     "price": 45000,
     "badge": "New Arrival",
     "specs": [
-      {
-        "key": "prod_1_spec_1"
-      },
-      {
-        "key": "prod_1_spec_2"
-      },
-      {
-        "key": "prod_1_spec_3"
-      }
+      { "key": "prod_1_spec_1" },
+      { "key": "prod_1_spec_2" },
+      { "key": "prod_1_spec_3" }
     ],
-    "image": "/assets/harvester.jpg",
+    "image": "./assets/harvester.jpg",
     "imageAlt": "prod_1_alt",
     "whatsappMessage": "I'm interested in the GT-900 Combine Harvester"
   },
@@ -25,62 +19,104 @@
     "categoryId": "milling",
     "nameKey": "prod_2_name",
     "price": 12000,
-    "badge": null,
+    "badge": "Popular",
     "specs": [
-      {
-        "key": "prod_2_spec_1"
-      },
-      {
-        "key": "prod_2_spec_2"
-      },
-      {
-        "key": "prod_2_spec_3"
-      }
+      { "key": "prod_2_spec_1" },
+      { "key": "prod_2_spec_2" },
+      { "key": "prod_2_spec_3" }
     ],
-    "image": "/assets/flour_mill.jpg",
+    "image": "./assets/flour_mill.jpg",
     "imageAlt": "prod_2_alt",
-    "whatsappMessage": "I'm interested in the Flour Mill Pro-X"
+    "whatsappMessage": "I'm interested in the Commercial Flour Mill (Atta Chakki)"
   },
   {
     "id": "3",
+    "categoryId": "milling",
+    "nameKey": "prod_rice_mill_name",
+    "price": 38000,
+    "badge": "Commercial",
+    "specs": [
+      { "key": "prod_rice_mill_spec_1" },
+      { "key": "prod_rice_mill_spec_2" },
+      { "key": "prod_rice_mill_spec_3" }
+    ],
+    "image": "./assets/flour_mill.jpg",
+    "imageAlt": "prod_rice_mill_name",
+    "whatsappMessage": "I'm interested in the Commercial Rice Mill & De-husker"
+  },
+  {
+    "id": "4",
+    "categoryId": "milling",
+    "nameKey": "prod_pulverizer_name",
+    "price": 24000,
+    "badge": "Industrial",
+    "specs": [
+      { "key": "prod_pulverizer_spec_1" },
+      { "key": "prod_pulverizer_spec_2" },
+      { "key": "prod_pulverizer_spec_3" }
+    ],
+    "image": "./assets/flour_mill.jpg",
+    "imageAlt": "prod_pulverizer_name",
+    "whatsappMessage": "I'm interested in the Industrial Pulverizer"
+  },
+  {
+    "id": "5",
+    "categoryId": "pumps",
+    "nameKey": "prod_mono_pump_name",
+    "price": 5800,
+    "badge": "Texmo Genuine",
+    "specs": [
+      { "key": "prod_mono_pump_spec_1" },
+      { "key": "prod_mono_pump_spec_2" },
+      { "key": "prod_mono_pump_spec_3" }
+    ],
+    "image": "./assets/pump.webp",
+    "imageAlt": "prod_mono_pump_name",
+    "whatsappMessage": "I'm interested in the Texmo Mono Block Water Pump"
+  },
+  {
+    "id": "6",
+    "categoryId": "pumps",
+    "nameKey": "prod_priming_pump_name",
+    "price": 7900,
+    "badge": "Top Rated",
+    "specs": [
+      { "key": "prod_priming_pump_spec_1" },
+      { "key": "prod_priming_pump_spec_2" },
+      { "key": "prod_priming_pump_spec_3" }
+    ],
+    "image": "./assets/pump.webp",
+    "imageAlt": "prod_priming_pump_name",
+    "whatsappMessage": "I'm interested in the Texmo Self Priming Pump"
+  },
+  {
+    "id": "7",
+    "categoryId": "pipes",
+    "nameKey": "prod_irrigation_pipes_name",
+    "price": 3200,
+    "badge": "ISI Certified",
+    "specs": [
+      { "key": "prod_irrigation_pipes_spec_1" },
+      { "key": "prod_irrigation_pipes_spec_2" },
+      { "key": "prod_irrigation_pipes_spec_3" }
+    ],
+    "image": "./assets/pipes.webp",
+    "imageAlt": "prod_irrigation_pipes_name",
+    "whatsappMessage": "I'm interested in Irrigation Piping Systems"
+  },
+  {
+    "id": "8",
     "categoryId": "tiller",
     "nameKey": "prod_3_name",
     "price": 8000,
     "badge": null,
     "specs": [
-      {
-        "key": "prod_3_spec_1"
-      },
-      {
-        "key": "prod_3_spec_2"
-      },
-      {
-        "key": "prod_3_spec_3"
-      }
+      { "key": "prod_3_spec_1" },
+      { "key": "prod_3_spec_2" },
+      { "key": "prod_3_spec_3" }
     ],
-    "image": "/assets/tiller.jpg",
+    "image": "./assets/tiller.jpg",
     "imageAlt": "prod_3_alt",
     "whatsappMessage": "I'm interested in the Rotary Tiller RX"
-  },
-  {
-    "id": "4",
-    "categoryId": "tiller",
-    "nameKey": "prod_4_name",
-    "price": 5500,
-    "badge": "Best Seller",
-    "specs": [
-      {
-        "key": "prod_4_spec_1"
-      },
-      {
-        "key": "prod_4_spec_2"
-      },
-      {
-        "key": "prod_4_spec_3"
-      }
-    ],
-    "image": "/assets/tiller.jpg",
-    "imageAlt": "prod_4_alt",
-    "whatsappMessage": "I'm interested in the Compact Tiller"
   }
 ]
