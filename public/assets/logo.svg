@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 68" width="340" height="68" fill="none">
+  <defs>
+    <linearGradient id="goldGradH" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
+    </linearGradient>
+    <linearGradient id="greenGradH" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="50%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="waterGradH" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left: Circular Emblem (scaled to 56x56 at x=6, y=6) -->
+  <g transform="translate(6, 6) scale(0.28)">
+    <!-- Outer boundary -->
+    <circle cx="100" cy="100" r="94" fill="#061a0f" stroke="#10B981" stroke-width="4" stroke-opacity="0.4"/>
+    
+    <!-- Wheat Arch -->
+    <path d="M 40 160 C 25 125 30 75 80 32" stroke="url(#goldGradH)" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <path d="M 40 160 C 32 155 30 145 36 142 C 42 145 42 154 40 160 Z" fill="url(#goldGradH)"/>
+    <path d="M 44 153 C 49 146 56 144 57 150 C 53 156 46 156 44 153 Z" fill="url(#goldGradH)"/>
+    <path d="M 34 140 C 25 133 24 122 31 119 C 37 122 37 133 34 140 Z" fill="url(#goldGradH)"/>
+    <path d="M 38 132 C 45 125 53 124 53 131 C 49 137 41 136 38 132 Z" fill="url(#goldGradH)"/>
+    <path d="M 30 117 C 20 109 20 97 28 94 C 34 97 34 109 30 117 Z" fill="url(#goldGradH)"/>
+    <path d="M 36 109 C 44 102 52 101 51 109 C 47 115 39 114 36 109 Z" fill="url(#goldGradH)"/>
+    <path d="M 30 92 C 22 83 23 71 32 68 C 37 72 36 84 30 92 Z" fill="url(#goldGradH)"/>
+    <path d="M 38 84 C 47 77 56 77 54 85 C 49 91 41 89 38 84 Z" fill="url(#goldGradH)"/>
+    <path d="M 36 67 C 30 57 34 46 44 44 C 48 49 45 60 36 67 Z" fill="url(#goldGradH)"/>
+    <path d="M 46 60 C 56 53 65 55 62 63 C 56 68 48 66 46 60 Z" fill="url(#goldGradH)"/>
+    <path d="M 49 44 C 47 34 56 26 64 26 C 66 32 60 41 49 44 Z" fill="url(#goldGradH)"/>
+    <path d="M 61 38 C 72 32 80 36 76 44 C 69 48 62 45 61 38 Z" fill="url(#goldGradH)"/>
+    <path d="M 68 28 C 74 18 85 16 88 22 C 86 28 77 33 68 28 Z" fill="url(#goldGradH)"/>
+
+    <!-- Water Arc -->
+    <path d="M 55 168 C 105 192 165 170 176 115 C 182 85 168 50 128 32" stroke="url(#greenGradH)" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M 70 178 C 115 198 172 178 182 120 C 187 88 174 54 138 36" stroke="url(#waterGradH)" stroke-width="4" stroke-linecap="round" stroke-dasharray="16 8" fill="none"/>
+
+    <!-- GT Central Shield -->
+    <circle cx="100" cy="100" r="42" fill="#041209" stroke="url(#greenGradH)" stroke-width="4"/>
+    <path d="M 116 82 C 110 73 96 72 86 78 C 74 86 72 105 80 118 C 87 129 104 130 115 123 C 121 118 124 110 124 102 L 102 102 L 102 96 L 130 96 C 130 111 124 124 113 130 C 98 139 78 136 68 120 C 58 104 61 80 77 69 C 93 60 114 62 123 73 Z" fill="url(#greenGradH)"/>
+    <path d="M 92 81 L 126 81 L 126 87 L 112 87 L 112 118 L 106 118 L 106 87 L 92 87 Z" fill="url(#goldGradH)"/>
+  </g>
+
+  <!-- Typography Block -->
+  <g transform="translate(74, 14)">
+    <!-- Brand Wordmark -->
+    <text x="0" y="24" font-family="'Inter', -apple-system, sans-serif" font-size="22" font-weight="800" letter-spacing="0.5">
+      <tspan fill="#F8FAFC">GUPTA</tspan>
+      <tspan fill="#F59E0B" dx="6">TRADERS</tspan>
+    </text>
+
+    <!-- Tagline / Subtitle -->
+    <text x="0" y="41" font-family="'Inter', -apple-system, sans-serif" font-size="8.5" font-weight="600" fill="#10B981" letter-spacing="1.6">
+      AGRICULTURE &amp; IRRIGATION SOLUTIONS
+    </text>
+  </g>
+</svg>
