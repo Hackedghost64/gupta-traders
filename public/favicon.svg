@@ -1,68 +1,104 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
   <defs>
-    <linearGradient id="gVolute" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#047857"/>
-      <stop offset="50%" stop-color="#059669"/>
-      <stop offset="100%" stop-color="#10B981"/>
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="50%" y2="0%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FDE68A"/>
     </linearGradient>
-    <linearGradient id="tPipe" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981"/>
+      <stop offset="50%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="waterGrad" x1="0%" y1="100%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#0284C7"/>
-      <stop offset="50%" stop-color="#0EA5E9"/>
+      <stop offset="60%" stop-color="#0EA5E9"/>
       <stop offset="100%" stop-color="#38BDF8"/>
     </linearGradient>
-    <linearGradient id="goldSpike" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#D97706"/>
-      <stop offset="100%" stop-color="#F59E0B"/>
+    <linearGradient id="coreBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d2315"/>
+      <stop offset="100%" stop-color="#06130b"/>
     </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
   </defs>
 
-  <!-- Background base rounded rect -->
-  <rect width="100" height="100" rx="22" fill="#04170d"/>
+  <!-- Circular Outer Frame / Backdrop -->
+  <circle cx="100" cy="100" r="90" fill="url(#coreBg)" stroke="#10B981" stroke-width="1.5" stroke-opacity="0.3"/>
 
-  <!-- Agricultural wheat curve on bottom-left -->
-  <path d="M 16 75 C 10 58 14 38 24 26" fill="none" stroke="url(#goldSpike)" stroke-width="2.5" stroke-linecap="round"/>
-  <circle cx="16" cy="62" r="2.5" fill="#F59E0B"/>
-  <circle cx="14" cy="48" r="2.5" fill="#F59E0B"/>
-  <circle cx="18" cy="36" r="2.5" fill="#F59E0B"/>
-  <circle cx="24" cy="26" r="2.5" fill="#F59E0B"/>
+  <!-- Left: Stylized Golden Wheat Stalks (Agriculture & Milling) -->
+  <g id="wheat-arch">
+    <!-- Main stem -->
+    <path d="M 40 160 C 25 125 30 75 80 32" stroke="url(#goldGrad)" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+    
+    <!-- Grain kernels along the stem -->
+    <!-- Kernel 1 -->
+    <path d="M 40 160 C 32 155 30 145 36 142 C 42 145 42 154 40 160 Z" fill="url(#goldGrad)"/>
+    <path d="M 44 153 C 49 146 56 144 57 150 C 53 156 46 156 44 153 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Kernel 2 -->
+    <path d="M 34 140 C 25 133 24 122 31 119 C 37 122 37 133 34 140 Z" fill="url(#goldGrad)"/>
+    <path d="M 38 132 C 45 125 53 124 53 131 C 49 137 41 136 38 132 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Kernel 3 -->
+    <path d="M 30 117 C 20 109 20 97 28 94 C 34 97 34 109 30 117 Z" fill="url(#goldGrad)"/>
+    <path d="M 36 109 C 44 102 52 101 51 109 C 47 115 39 114 36 109 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Kernel 4 -->
+    <path d="M 30 92 C 22 83 23 71 32 68 C 37 72 36 84 30 92 Z" fill="url(#goldGrad)"/>
+    <path d="M 38 84 C 47 77 56 77 54 85 C 49 91 41 89 38 84 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Kernel 5 -->
+    <path d="M 36 67 C 30 57 34 46 44 44 C 48 49 45 60 36 67 Z" fill="url(#goldGrad)"/>
+    <path d="M 46 60 C 56 53 65 55 62 63 C 56 68 48 66 46 60 Z" fill="url(#goldGrad)"/>
+    
+    <!-- Kernel 6 (Top tip) -->
+    <path d="M 49 44 C 47 34 56 26 64 26 C 66 32 60 41 49 44 Z" fill="url(#goldGrad)"/>
+    <path d="M 61 38 C 72 32 80 36 76 44 C 69 48 62 45 61 38 Z" fill="url(#goldGrad)"/>
+    <!-- Apex -->
+    <path d="M 68 28 C 74 18 85 16 88 22 C 86 28 77 33 68 28 Z" fill="url(#goldGrad)"/>
+  </g>
 
-  <!-- PUMP BASE MOUNT -->
-  <rect x="26" y="81" width="50" height="4.5" rx="2" fill="#334155"/>
+  <!-- Right: Water Surge & Irrigation Arc (Pumps & Piping) -->
+  <g id="water-arc">
+    <path d="M 55 168 C 105 192 165 170 176 115 C 182 85 168 50 128 32" stroke="url(#greenGrad)" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path d="M 70 178 C 115 198 172 178 182 120 C 187 88 174 54 138 36" stroke="url(#waterGrad)" stroke-width="2" stroke-linecap="round" stroke-dasharray="12 4" fill="none" opacity="0.85"/>
+    
+    <!-- Flow droplets -->
+    <circle cx="145" cy="35" r="3.5" fill="#38BDF8"/>
+    <circle cx="162" cy="52" r="2.5" fill="#38BDF8"/>
+    <circle cx="178" cy="80" r="3" fill="#10B981"/>
+    <circle cx="181" cy="112" r="2.5" fill="#38BDF8"/>
+    <circle cx="171" cy="145" r="3.5" fill="#10B981"/>
+  </g>
 
-  <!-- 'G' - CENTRIFUGAL PUMP VOLUTE CASING -->
-  <!-- Outer loop of G starts from top discharge connection around to inner bar -->
-  <path d="
-    M 52 32
-    A 24 24 0 1 0 74 61
-    L 74 54
-    L 53 54
-    A 5 5 0 0 1 53 44
-    L 74 44
-    A 10 10 0 0 1 84 54
-    L 84 62
-    A 34 34 0 1 1 52 22
-    Z
-  " fill="url(#gVolute)"/>
+  <!-- Center Monogram: Powerful Interlocking GT -->
+  <g id="gt-monogram" transform="translate(100, 102)">
+    <!-- Glow Backdrop for Badge -->
+    <circle cx="0" cy="0" r="42" fill="#05180d" stroke="url(#greenGrad)" stroke-width="2"/>
+    <circle cx="0" cy="0" r="37" fill="none" stroke="url(#goldGrad)" stroke-width="0.75" opacity="0.5"/>
+    
+    <!-- Bold 'G' (Emerald Green) -->
+    <!-- Outer G arc: starts top right, swoops left down, curves up into horizontal crossbar -->
+    <path d="M 16 -18 C 10 -27 -4 -28 -14 -22 C -26 -14 -28 5 -20 18 C -13 29 4 30 15 23 C 21 18 24 10 24 2 L 2 2 L 2 -4 L 30 -4 C 30 11 24 24 13 30 C -2 39 -22 36 -32 20 C -42 4 -39 -20 -23 -31 C -7 -40 14 -38 23 -27 Z" fill="url(#greenGrad)"/>
 
-  <!-- Impeller Eye / Water Droplet inside G -->
-  <circle cx="50" cy="56" r="6" fill="#04170d"/>
-  <path d="M 50 51 C 54 55 54 58 50 60 C 46 58 46 55 50 51 Z" fill="url(#tPipe)"/>
-  <circle cx="50" cy="56" r="2" fill="#F59E0B"/>
+    <!-- Bold 'T' (Warm Golden Amber) centered/interlocked -->
+    <!-- Horizontal Top Bar -->
+    <path d="M -8 -19 L 26 -19 L 26 -13 L 12 -13 L 12 18 L 6 18 L 6 -13 L -8 -13 Z" fill="url(#goldGrad)"/>
 
-  <!-- 'T' - DISCHARGE RISER & PIPE FLANGE TEE -->
-  <!-- Vertical pipe column (stem of T) -->
-  <rect x="47" y="16" width="10" height="18" rx="2" fill="url(#tPipe)"/>
-  
-  <!-- Flange connection to pump volute -->
-  <rect x="44" y="30" width="16" height="3" rx="1.5" fill="#0369A1"/>
+    <!-- Small Precision Water Droplet Core Accent -->
+    <path d="M 0 -3 C 3 -6 6 -3 6 0 C 6 3 3 5 0 5 C -3 5 -6 3 -6 0 C -6 -3 -3 -6 0 -3 Z" fill="#38BDF8" opacity="0.9" transform="translate(2, 8) scale(0.6)"/>
+  </g>
 
-  <!-- Horizontal crossbar of T (Delivery Pipe Manifold / Valve Tee) -->
-  <rect x="30" y="11" width="44" height="9" rx="3" fill="url(#tPipe)"/>
-  <!-- Pipe end flanges -->
-  <rect x="28" y="10" width="3" height="11" rx="1" fill="#0369A1"/>
-  <rect x="73" y="10" width="3" height="11" rx="1" fill="#0369A1"/>
-
-  <!-- Dynamic Water Jet flowing from the T delivery port -->
-  <path d="M 77 15.5 C 83 14 87 16 91 13 C 89 18 85 18 77 16.5 Z" fill="#38BDF8"/>
-  <circle cx="93" cy="13" r="1.5" fill="#38BDF8"/>
+  <!-- Bottom Arch Ribbon: DEDICATED TO FARMER SERVICE -->
+  <g id="ribbon">
+    <path id="text-path-bottom" d="M 38 150 C 70 188 130 188 162 150" fill="none" stroke="none"/>
+    <text font-family="'Inter', -apple-system, sans-serif" font-size="7.5" font-weight="800" fill="#A7F3D0" letter-spacing="1.2">
+      <textPath href="#text-path-bottom" startOffset="50%" text-anchor="middle">
+        DEDICATED TO FARMER SERVICE
+      </textPath>
+    </text>
+  </g>
 </svg>
