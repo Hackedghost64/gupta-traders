@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "generate:feed": "node scripts/generate-catalog-feed.js",
+    "build": "node scripts/generate-catalog-feed.js && tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix"
